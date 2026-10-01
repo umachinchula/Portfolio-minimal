@@ -26,6 +26,30 @@ function applyPortfolioCms(){
 
 applyPortfolioCms();
 
+const productVideos = [...document.querySelectorAll('[data-autoplay-video]')];
+
+if(productVideos.length){
+  const setVideoPlayback=(video,play)=>{
+    if(play){
+      const attempt=video.play();
+      if(attempt&&typeof attempt.catch==='function')attempt.catch(()=>{});
+    }else{
+      video.pause();
+    }
+  };
+
+  const videoObserver=new IntersectionObserver(entries=>{
+    for(const entry of entries)setVideoPlayback(entry.target,entry.isIntersecting);
+  },{threshold:.35});
+
+  for(const video of productVideos){
+    video.muted=true;
+    video.playsInline=true;
+    video.pause();
+    videoObserver.observe(video);
+  }
+}
+
 function updateNavigation(){
   const marker=window.scrollY+window.innerHeight*.45;
   let current=sections[0];
