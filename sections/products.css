@@ -1,0 +1,225 @@
+#products {
+  --products-bg: #f9fafb;
+  --products-text: #0f1115;
+  --products-muted: #50576b;
+  --products-stroke: #d2dae4;
+  box-sizing: border-box;
+  width: min(1160px, calc(100% - 40px));
+  max-width: 1160px;
+  min-height: 900px;
+  margin-inline: auto;
+  padding: 60px 0 128px;
+  color: var(--products-text);
+  font-family: Figtree, Arial, sans-serif;
+}
+
+#products *, #products *::before, #products *::after { box-sizing: border-box; }
+
+#products .products-heading {
+  display: block;
+  height: 52px;
+  margin: 0 0 40px;
+  padding: 0 0 20px;
+  border-bottom: 1px solid var(--products-stroke);
+}
+
+#products .products-heading h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0;
+}
+
+#products .products-frame {
+  height: 620px;
+  padding: 8px;
+  border-radius: 40px;
+  background: var(--products-bg);
+  overflow: hidden;
+}
+
+#products .products-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 8px;
+  height: 100%;
+}
+
+#products .products-card {
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 32px;
+  background: #fff;
+  box-shadow: 0 2px 6px -4px #2c2d3014, 0 12px 20px -12px #2c2d301a;
+}
+
+#products .products-card h3 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+#products .products-card p {
+  margin: 0;
+  color: var(--products-muted);
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+#products .products-card--snapbud {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 28px 12px;
+}
+
+#products .products-card--snapbud .products-card-copy { flex: none; }
+
+#products .products-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+#products .products-button {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  height: 48px;
+  padding: 9px 9px 9px 22px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+  color: var(--products-text);
+  background: #fff;
+  font: 500 14px/20px Figtree, Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+#products .products-button:hover { filter: brightness(.97); }
+#products .products-button:focus-visible { outline: 2px solid var(--products-text); outline-offset: 3px; }
+#products .products-button--light { border-color: var(--products-stroke); }
+#products .products-button--dark { color: #fff; background: #151619; }
+
+#products .products-button-icon {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin-left: 10px;
+  border-radius: 50%;
+  background: var(--products-bg);
+}
+
+#products .products-button--dark .products-button-icon { background: #333437; }
+#products .products-button-icon img { display: block; width: 14px; height: 14px; }
+
+#products .products-snapbud-art {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 0;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+#products .products-snapbud-art img {
+  display: block;
+  flex: none;
+  width: 372px;
+  height: 372px;
+  object-fit: contain;
+}
+
+#products .products-secondary {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 8px;
+  min-height: 0;
+}
+
+#products .products-card--compact {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 28px;
+}
+
+#products .products-compact-top {
+  display: flex;
+  flex: none;
+  align-items: flex-start;
+  gap: 24px;
+  min-width: 0;
+}
+
+#products .products-compact-top .products-card-copy { flex: 1 1 auto; min-width: 0; }
+#products .products-compact-top .products-button { flex: none; }
+
+#products .products-interface {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+#products .products-interface img {
+  position: absolute;
+  top: 0;
+  left: -40.66%;
+  display: block;
+  width: 154.58%;
+  height: 150.88%;
+  max-width: none;
+}
+
+@media (min-width: 744px) and (max-width: 1279px) {
+  #products { width: calc(100% - 80px); min-height: auto; padding-top: 60px; padding-bottom: 80px; }
+  #products .products-frame { height: clamp(520px, 60vw, 620px); }
+  #products .products-card--snapbud { padding: 24px 22px 12px; }
+  #products .products-card--compact { padding: 22px; gap: 20px; }
+  #products .products-compact-top { gap: 12px; }
+  #products .products-card h3 { font-size: 22px; line-height: 28px; }
+  #products .products-card p { font-size: 15px; line-height: 20px; }
+  #products .products-snapbud-art img { width: min(100%, 340px); height: auto; }
+}
+
+@media (max-width: 743px) {
+  #products { width: calc(100% - 40px); min-height: 0; padding: 64px 0 110px; }
+  #products .products-heading { height: 44px; margin-bottom: 24px; padding-bottom: 20px; }
+  #products .products-heading h2 { font-size: 18px; line-height: 24px; }
+  #products .products-frame { height: auto; padding: 8px; }
+  #products .products-layout { display: flex; flex-direction: column; gap: 8px; height: auto; }
+  #products .products-card { border-radius: 32px; }
+  #products .products-card h3 { font-size: 18px; line-height: 24px; }
+  #products .products-card p { font-size: 15px; line-height: 20px; }
+  #products .products-card--snapbud { height: 588px; padding: 16px; justify-content: space-between; }
+  #products .products-actions { flex-direction: column; gap: 12px; margin-top: 20px; }
+  #products .products-actions .products-button { width: 100%; }
+  #products .products-snapbud-art { flex: none; width: min(228.34px, 100%); height: 248px; margin-inline: auto; border-radius: 8px; }
+  #products .products-snapbud-art img { width: 281.27px; height: 281.27px; max-width: none; }
+  #products .products-secondary { display: flex; flex-direction: column; gap: 8px; }
+  #products .products-card--compact { flex: none; height: 486.5px; gap: 28px; padding: 16px; }
+  #products .products-compact-top { display: flex; flex-direction: column; gap: 24px; }
+  #products .products-compact-top .products-button { width: 100%; }
+  #products .products-interface { flex: 1 1 auto; }
+}
+
+@media (max-width: 359px) {
+  #products { width: calc(100% - 32px); }
+  #products .products-card--snapbud { height: auto; min-height: 588px; }
+  #products .products-button { padding-left: 12px; }
+}

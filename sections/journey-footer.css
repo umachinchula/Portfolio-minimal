@@ -1,0 +1,86 @@
+@font-face{font-family:UmaSatoshi;src:url('../assets/figma-shared/Satoshi-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+
+#journey.portfolio-journey,#contact.portfolio-footer{box-sizing:border-box;padding-block:60px 128px;font-family:Figtree,Arial,sans-serif;color:#0f1115;scroll-margin-top:0}
+#journey.portfolio-journey *,#contact.portfolio-footer *{box-sizing:border-box}
+#journey>.section-heading,#contact>.section-heading{height:52px;display:flex;align-items:flex-start;margin:0 0 40px;padding:0;border-bottom:1px solid #d2dae4}
+#journey>.section-heading h2,#contact>.section-heading h2{margin:0;font-size:24px;line-height:32px;font-weight:700;letter-spacing:0}
+#journey .journey-layout,#contact .footer-layout{width:100%;background:#f9fafb;border-radius:40px;padding:8px;overflow:hidden;box-shadow:0 7px 8px -6px rgba(44,45,48,.13)}
+#journey .journey-layout{height:620px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+#journey .journey-experiences{display:grid;grid-template-rows:repeat(3,minmax(0,1fr));gap:8px;min-height:0}
+#journey .journey-experience,#journey .journey-story,#contact .footer-feature,#contact .footer-link-group{background:#fff;border-radius:32px;box-shadow:0 6px 18px -12px rgba(44,45,48,.22)}
+#journey .journey-experience{padding:28px;display:flex;flex-direction:column;justify-content:space-between;min-width:0}
+#journey .journey-experience-heading{display:flex;align-items:flex-start;gap:20px;min-width:0}
+#journey .journey-experience-heading>img{width:52px;height:52px;object-fit:cover;border-radius:10px;flex:none}
+#journey .journey-experience-heading>div{min-width:0}
+#journey .journey-experience h3{margin:0;font-size:20px;line-height:24px;font-weight:700;letter-spacing:0}
+#journey .journey-experience h3 span{color:#50576b}
+#journey .journey-experience-heading p{margin:8px 0 0;color:#50576b;font-size:16px;line-height:22px;font-weight:500}
+#journey .journey-experience .journey-description{margin:0;color:#50576b;font-size:18px;line-height:24px;font-weight:500}
+#journey .journey-mobile-date{display:none}
+#journey .journey-story{position:relative;overflow:hidden;padding:28px 28px 12px;min-width:0}
+#journey .journey-story-copy{position:relative;z-index:1}
+#journey .journey-story h3{margin:0 0 8px;font-size:24px;line-height:32px;font-weight:700;letter-spacing:0}
+#journey .journey-story p{margin:0;color:#50576b;font-size:18px;line-height:24px;font-weight:500}
+#journey .journey-photo-strip,#contact .footer-photo-strip{position:absolute;left:50%;bottom:-29px;display:flex;align-items:flex-start;justify-content:center;width:max-content;transform:translateX(-50%);pointer-events:none}
+#journey .journey-photo-strip span,#contact .footer-photo-strip span{width:227px;height:227px;flex:none;padding:3px;border:2px solid #d2dae4;border-radius:14px;background:#f9fafb;overflow:hidden;transform:rotate(9deg)}
+#journey .journey-photo-strip span+span,#contact .footer-photo-strip span+span{margin-left:-56px}
+#journey .journey-photo-strip span:nth-child(even),#contact .footer-photo-strip span:nth-child(even){transform:rotate(-9deg)}
+#journey .journey-photo-strip img,#contact .footer-photo-strip img{display:block;width:100%;height:100%;border-radius:10px;object-fit:cover}
+
+#contact .footer-layout{height:620px;display:grid;grid-template-rows:minmax(0,1fr) 252px;gap:8px}
+#contact .footer-feature{position:relative;overflow:hidden;padding:28px}
+#contact .footer-feature>p{position:relative;z-index:1;margin:0;font-family:UmaSatoshi,Figtree,Arial,sans-serif;font-size:32px;line-height:38px;font-weight:700;letter-spacing:0}
+#contact .footer-feature>p span{color:#a8aebd}
+#contact .footer-photo-strip{bottom:-84px}
+#contact .footer-link-grid{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:8px;min-height:0}
+#contact .footer-link-group{padding:28px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;min-width:0;overflow:hidden}
+#contact .footer-link-group h3{margin:0;color:#50576b;font-size:20px;line-height:24px;font-weight:500;letter-spacing:0}
+#contact .footer-link-group a,#contact .footer-contact-group>span{display:inline-flex;align-items:center;gap:10px;max-width:100%;color:#0f1115;font-size:24px;line-height:32px;font-weight:600;letter-spacing:0;text-decoration:none}
+#contact .footer-link-group a:hover{text-decoration:underline;text-underline-offset:4px}
+#contact .footer-link-group a:focus-visible{outline:2px solid #323745;outline-offset:3px}
+#contact .footer-link-group:first-child a:last-child{font-size:23px;white-space:nowrap}
+#contact .footer-contact-group{gap:10px}
+#contact .footer-contact-group img{display:block;width:20px;height:20px;padding:5px;border-radius:50%;background:#f9fafb;object-fit:contain}
+
+@media(max-width:800px){
+  #journey.portfolio-journey,#contact.portfolio-footer{padding-block:64px 106px}
+  #journey>.section-heading,#contact>.section-heading{height:44px;margin-bottom:20px}
+  #contact>.section-heading{height:52px}
+  #journey>.section-heading h2,#contact>.section-heading h2{font-size:20px;line-height:24px}
+  #journey .journey-layout{height:auto;display:flex;flex-direction:column;gap:8px}
+  #journey .journey-experiences{display:flex;flex-direction:column;gap:8px;flex:none}
+  #journey .journey-experience{height:auto;min-height:168px;flex:none;padding:16px}
+  #journey .journey-experience:first-child{height:auto;min-height:164px}
+  #journey .journey-experience-heading{gap:12px}
+  #journey .journey-experience-heading>img{width:44px;height:44px;border-radius:8px}
+  #journey .journey-experience h3{font-size:15px;line-height:20px;overflow-wrap:anywhere}
+  #journey .journey-experience-heading p{margin-top:4px;font-size:14px;line-height:20px}
+  #journey .journey-experience .journey-description{font-size:14px;line-height:20px}
+  #journey .journey-desktop-date{display:none}
+  #journey .journey-mobile-date{display:block}
+  #journey .journey-story{height:auto;min-height:484px;flex:none;padding:28px;overflow:hidden}
+  #journey .journey-story h3{margin-bottom:8px;font-size:18px;line-height:24px}
+  #journey .journey-story p{font-size:14px;line-height:20px}
+  #journey .journey-photo-strip{bottom:13px;left:50%}
+  #journey .journey-photo-strip span,#contact .footer-photo-strip span{width:149px;height:149px;padding:2px;border-width:1px;border-radius:9px}
+  #journey .journey-photo-strip span+span,#contact .footer-photo-strip span+span{margin-left:-36px}
+  #journey .journey-photo-strip img,#contact .footer-photo-strip img{border-radius:7px}
+
+  #contact .footer-layout{height:1032px;display:flex;flex-direction:column;gap:8px}
+  #contact .footer-feature{height:434px;flex:none;padding:16px}
+  #contact .footer-feature>p{font-size:24px;line-height:29px}
+  #contact .footer-photo-strip{bottom:3px}
+  #contact .footer-link-grid{display:flex;flex-direction:column;gap:8px;flex:none}
+  #contact .footer-link-group{height:174px;flex:none;padding:16px;gap:12px}
+  #contact .footer-link-group:last-child{height:210px}
+  #contact .footer-link-group h3{font-size:18px;line-height:24px}
+  #contact .footer-link-group a,#contact .footer-contact-group>span{font-size:18px;line-height:24px}
+  #contact .footer-link-group:first-child a:last-child{font-size:18px}
+  #contact .footer-contact-group{gap:12px}
+}
+
+@media(max-width:380px){
+  #journey .journey-experience h3{font-size:14px}
+  #contact .footer-feature>p{font-size:22px;line-height:28px}
+  #contact .footer-link-group a,#contact .footer-contact-group>span{font-size:17px}
+}
