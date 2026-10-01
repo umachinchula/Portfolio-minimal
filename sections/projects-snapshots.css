@@ -35,20 +35,25 @@
 
 #projects .ps-stack,
 #snapshots .ps-stack {
-  --stack-gap: 96px;
-  --stack-runway: calc((var(--stack-cards, 1) - 1) * var(--stack-gap) + 420px);
+  --stack-step: 132px;
+  --stack-card-height: 620px;
   position: relative;
-  padding-bottom: var(--stack-runway);
+  display: grid;
+  grid-template-areas: "stack";
+  height: calc(var(--stack-card-height) + (var(--stack-cards, 1) - 1) * var(--stack-step) + 1px);
+  padding-bottom: 0;
 }
 
 #projects .ps-card,
 #snapshots .ps-card {
   position: sticky;
   top: clamp(44px, calc((100dvh - 620px) / 2 - 14px), 152px);
+  grid-area: stack;
   z-index: var(--ps-order);
   width: 100%;
   height: 620px;
-  margin-bottom: var(--stack-gap);
+  margin-top: calc((var(--ps-order) - 1) * var(--stack-step));
+  margin-bottom: 0;
   padding: 8px;
   overflow: clip;
   border-radius: 40px;
@@ -422,13 +427,20 @@
 
   #projects .ps-stack,
   #snapshots .ps-stack {
-    --stack-gap: 56px;
-    --stack-runway: calc((var(--stack-cards, 1) - 1) * var(--stack-gap) + 72vh);
-    padding-bottom: var(--stack-runway);
+    --stack-step: 72px;
+    --stack-card-height: 606px;
+    height: calc(var(--stack-card-height) + (var(--stack-cards, 1) - 1) * var(--stack-step) + 1px);
+    padding-bottom: 0;
   }
 
   #projects .ps-card,
-  #snapshots .ps-card { top: 20px; height: auto; min-height: 602px; margin-bottom: var(--stack-gap); }
+  #snapshots .ps-card {
+    top: 20px;
+    height: auto;
+    min-height: 602px;
+    margin-top: calc((var(--ps-order) - 1) * var(--stack-step));
+    margin-bottom: 0;
+  }
   #snapshots .ps-card { min-height: 606px; }
   #projects .ps-card:last-child,
   #snapshots .ps-card:last-child { margin-bottom: 0; }
