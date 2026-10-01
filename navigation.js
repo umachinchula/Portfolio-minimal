@@ -7,6 +7,25 @@ const dockToggle = document.querySelector('.dock-toggle');
 const counters = [...document.querySelectorAll('[data-count-for]')];
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+function applyPortfolioCms(){
+  const cms=window.PORTFOLIO_CMS;
+  if(!cms)return;
+  for(const item of cms.images||[]){
+    for(const node of document.querySelectorAll(item.selector)){
+      node.src=item.src;
+      if(item.srcset)node.srcset=item.srcset;
+    }
+  }
+  for(const item of cms.links||[]){
+    for(const node of document.querySelectorAll(item.selector))node.href=item.href;
+  }
+  for(const item of cms.text||[]){
+    for(const node of document.querySelectorAll(item.selector))node.textContent=item.text;
+  }
+}
+
+applyPortfolioCms();
+
 function updateNavigation(){
   const marker=window.scrollY+window.innerHeight*.45;
   let current=sections[0];
@@ -45,34 +64,28 @@ dockToggle.addEventListener('click',()=>{
 for(const link of dockWrap.querySelectorAll('a'))link.addEventListener('click',()=>{dockExtra.hidden=true;dockWrap.classList.remove('menu-open');dockToggle.setAttribute('aria-expanded','false');dockToggle.textContent='+'});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'){dockExtra.hidden=true;dockWrap.classList.remove('menu-open');dockToggle.setAttribute('aria-expanded','false');dockToggle.textContent='+'}});
 
-if(!reduceMotion){
-  let smoothTarget=window.scrollY;
-  let smoothCurrent=window.scrollY;
-  let smoothFrame=0;
-  const maxScroll=()=>document.documentElement.scrollHeight-window.innerHeight;
-  const stopSmooth=()=>{if(smoothFrame)cancelAnimationFrame(smoothFrame);smoothFrame=0;smoothTarget=smoothCurrent=window.scrollY};
-  const tickSmooth=()=>{
-    smoothCurrent+=(smoothTarget-smoothCurrent)*0.16;
-    if(Math.abs(smoothTarget-smoothCurrent)<.5){window.scrollTo(0,smoothTarget);smoothFrame=0;return}
-    window.scrollTo(0,smoothCurrent);
-    smoothFrame=requestAnimationFrame(tickSmooth);
-  };
-  window.addEventListener('wheel',event=>{
-    if(event.defaultPrevented||event.ctrlKey||event.metaKey||event.target.closest('.ps-media-viewport'))return;
-    event.preventDefault();
-    smoothTarget=Math.max(0,Math.min(maxScroll(),smoothTarget+event.deltaY));
-    if(!smoothFrame){smoothCurrent=window.scrollY;smoothFrame=requestAnimationFrame(tickSmooth)}
-  },{passive:false});
-  window.addEventListener('keydown',stopSmooth);
-  window.addEventListener('touchstart',stopSmooth,{passive:true});
+if(!reduceMotion&&window.Lenis){
+  const lenis=new Lenis({
+    duration:1.25,
+    easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),
+    smoothWheel:true,
+    smoothTouch:false,
+    wheelMultiplier:.86,
+    touchMultiplier:1.2
+  });
+  function raf(time){
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+  lenis.on('scroll',updateNavigation);
   document.addEventListener('click',event=>{
     const anchor=event.target.closest('a[href^="#"]');
     if(!anchor)return;
     const target=document.querySelector(anchor.getAttribute('href'));
     if(!target)return;
     event.preventDefault();
-    smoothTarget=Math.max(0,Math.min(maxScroll(),target.offsetTop-24));
-    if(!smoothFrame){smoothCurrent=window.scrollY;smoothFrame=requestAnimationFrame(tickSmooth)}
+    lenis.scrollTo(target,{offset:-24,duration:1.1});
   });
 }
 

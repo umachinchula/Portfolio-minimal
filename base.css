@@ -7,10 +7,15 @@
   --page-padding:60px;--content-width:1160px;
   --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:20px;--space-6:24px;--space-7:28px;--space-8:32px;--space-10:40px;--space-12:48px;--space-16:64px;
   --radius-xs:4px;--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:20px;--radius-2xl:24px;--radius-3xl:32px;--radius-full:999px;
-  font-family:Figtree,Arial,sans-serif;color:var(--text-1);background:var(--bg-1);font-synthesis:none;scroll-behavior:smooth;
+  font-family:Figtree,Arial,sans-serif;color:var(--text-1);background:var(--bg-1);font-synthesis:none;
 }
 *{box-sizing:border-box}
 html{scroll-padding-top:32px}
+html.lenis{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+.lenis.lenis-scrolling iframe{pointer-events:none}
 body{margin:0;min-width:320px}
 button,input{font:inherit}
 button{cursor:pointer}
