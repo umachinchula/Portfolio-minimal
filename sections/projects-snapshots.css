@@ -35,8 +35,16 @@
 
 #projects .ps-stack,
 #snapshots .ps-stack {
+  --stack-end-space: 72px;
   position: relative;
   padding-bottom: 0;
+}
+
+#projects .ps-stack::after,
+#snapshots .ps-stack::after {
+  content: "";
+  display: block;
+  height: var(--stack-end-space);
 }
 
 #projects .ps-card,
@@ -55,7 +63,7 @@
 }
 
 #projects .ps-card:last-child,
-#snapshots .ps-card:last-child { margin-bottom: 8px; }
+#snapshots .ps-card:last-child { margin-bottom: 0; }
 
 #projects .ps-card-inner,
 #snapshots .ps-card-inner {
@@ -420,6 +428,7 @@
 
   #projects .ps-stack,
   #snapshots .ps-stack {
+    --stack-end-space: 54px;
     padding-bottom: 0;
   }
 
