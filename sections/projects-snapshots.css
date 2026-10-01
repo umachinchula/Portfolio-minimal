@@ -7,7 +7,7 @@
   --ps-surface: #f9fafb;
   width: min(1160px, calc(100% - 120px));
   margin-inline: auto;
-  padding: 60px 0 128px;
+  padding: 60px 0 72px;
   color: var(--ps-text);
   scroll-margin-top: 0;
 }
@@ -25,9 +25,7 @@
 }
 
 #projects .ps-heading h2,
-#snapshots .ps-heading h2,
-#projects .ps-heading .section-count,
-#snapshots .ps-heading .section-count {
+#snapshots .ps-heading h2 {
   margin: 0;
   font-size: 24px;
   line-height: 32px;
@@ -35,13 +33,10 @@
   letter-spacing: -0.96px;
 }
 
-#projects .ps-heading .section-count,
-#snapshots .ps-heading .section-count { color: var(--ps-muted); }
-
 #projects .ps-stack,
 #snapshots .ps-stack {
   position: relative;
-  padding-bottom: max(180px, 52vh);
+  padding-bottom: 12px;
 }
 
 #projects .ps-card,
@@ -51,7 +46,7 @@
   z-index: var(--ps-order);
   width: 100%;
   height: 620px;
-  margin-bottom: max(180px, 52vh);
+  margin-bottom: 72px;
   padding: 8px;
   overflow: clip;
   border-radius: 40px;
@@ -60,7 +55,7 @@
 }
 
 #projects .ps-card:last-child,
-#snapshots .ps-card:last-child { margin-bottom: 0; }
+#snapshots .ps-card:last-child { margin-bottom: 24px; }
 
 #projects .ps-card-inner,
 #snapshots .ps-card-inner {
@@ -414,23 +409,23 @@
 
 @media (max-width: 743px) {
   #projects.ps-section,
-  #snapshots.ps-section { width: calc(100% - 40px); padding: 64px 0 96px; }
+  #snapshots.ps-section { width: calc(100% - 40px); padding: 64px 0 58px; }
 
   #projects .ps-heading,
   #snapshots .ps-heading { height: 44px; margin-bottom: 24px; padding-bottom: 20px; }
   #snapshots .ps-heading { margin-bottom: 20px; }
 
   #projects .ps-heading h2,
-  #snapshots .ps-heading h2,
-  #projects .ps-heading .section-count,
-  #snapshots .ps-heading .section-count { font-size: 18px; line-height: 24px; letter-spacing: -.8px; }
+  #snapshots .ps-heading h2 { font-size: 18px; line-height: 24px; letter-spacing: -.8px; }
 
   #projects .ps-stack,
-  #snapshots .ps-stack { padding-bottom: 38vh; }
+  #snapshots .ps-stack { padding-bottom: 0; }
 
   #projects .ps-card,
-  #snapshots .ps-card { top: 20px; height: auto; min-height: 602px; margin-bottom: 38vh; }
+  #snapshots .ps-card { top: 20px; height: auto; min-height: 602px; margin-bottom: 54px; }
   #snapshots .ps-card { min-height: 606px; }
+  #projects .ps-card:last-child,
+  #snapshots .ps-card:last-child { margin-bottom: 0; }
 
   #projects .ps-card-inner,
   #snapshots .ps-card-inner { justify-content: space-between; gap: 16px; height: auto; min-height: 586px; padding: 16px; }
@@ -456,7 +451,7 @@
 
   #projects .ps-media-viewport,
   #snapshots .ps-media-viewport {
-    --media-size: min(250px, calc(100vw - 88px));
+    --media-size: min(252px, calc(100vw - 88px));
     flex: none;
     height: var(--media-size);
   }

@@ -5,6 +5,7 @@ const dockWrap = document.querySelector('.dock-wrap');
 const dockExtra = document.querySelector('.dock-extra');
 const dockToggle = document.querySelector('.dock-toggle');
 const counters = [...document.querySelectorAll('[data-count-for]')];
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function updateNavigation(){
   const marker=window.scrollY+window.innerHeight*.45;
@@ -43,6 +44,37 @@ dockToggle.addEventListener('click',()=>{
 });
 for(const link of dockWrap.querySelectorAll('a'))link.addEventListener('click',()=>{dockExtra.hidden=true;dockWrap.classList.remove('menu-open');dockToggle.setAttribute('aria-expanded','false');dockToggle.textContent='+'});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'){dockExtra.hidden=true;dockWrap.classList.remove('menu-open');dockToggle.setAttribute('aria-expanded','false');dockToggle.textContent='+'}});
+
+if(!reduceMotion){
+  let smoothTarget=window.scrollY;
+  let smoothCurrent=window.scrollY;
+  let smoothFrame=0;
+  const maxScroll=()=>document.documentElement.scrollHeight-window.innerHeight;
+  const stopSmooth=()=>{if(smoothFrame)cancelAnimationFrame(smoothFrame);smoothFrame=0;smoothTarget=smoothCurrent=window.scrollY};
+  const tickSmooth=()=>{
+    smoothCurrent+=(smoothTarget-smoothCurrent)*0.16;
+    if(Math.abs(smoothTarget-smoothCurrent)<.5){window.scrollTo(0,smoothTarget);smoothFrame=0;return}
+    window.scrollTo(0,smoothCurrent);
+    smoothFrame=requestAnimationFrame(tickSmooth);
+  };
+  window.addEventListener('wheel',event=>{
+    if(event.defaultPrevented||event.ctrlKey||event.metaKey||event.target.closest('.ps-media-viewport'))return;
+    event.preventDefault();
+    smoothTarget=Math.max(0,Math.min(maxScroll(),smoothTarget+event.deltaY));
+    if(!smoothFrame){smoothCurrent=window.scrollY;smoothFrame=requestAnimationFrame(tickSmooth)}
+  },{passive:false});
+  window.addEventListener('keydown',stopSmooth);
+  window.addEventListener('touchstart',stopSmooth,{passive:true});
+  document.addEventListener('click',event=>{
+    const anchor=event.target.closest('a[href^="#"]');
+    if(!anchor)return;
+    const target=document.querySelector(anchor.getAttribute('href'));
+    if(!target)return;
+    event.preventDefault();
+    smoothTarget=Math.max(0,Math.min(maxScroll(),target.offsetTop-24));
+    if(!smoothFrame){smoothCurrent=window.scrollY;smoothFrame=requestAnimationFrame(tickSmooth)}
+  });
+}
 
 const caseModal=document.querySelector('#case-study-password-modal');
 if(caseModal){

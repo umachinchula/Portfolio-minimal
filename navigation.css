@@ -1,10 +1,10 @@
 .dock-wrap{position:fixed;left:50%;bottom:40px;z-index:100;transform:translateX(-50%);display:flex;flex-direction:column;align-items:flex-end;gap:8px}
 .dock,.dock-extra{display:flex;align-items:center;gap:4px;padding:4px;height:60px;background:#151619;border-radius:15px}
 .dock,.dock.is-home{width:max-content}
-.dock-link,.dock-toggle{border:0;background:transparent;display:grid;place-items:center;flex:none;width:52px;height:52px;border-radius:10px;padding:0}
-.dock-link img{width:28px;height:28px;opacity:.7}
+.dock-link,.dock-toggle{border:0;background:transparent;display:grid;place-items:center;flex:none;width:52px;height:52px;border-radius:10px;padding:0;transition:background-color .28s cubic-bezier(.2,.8,.2,1),transform .28s cubic-bezier(.2,.8,.2,1)}
+.dock-link img{width:28px;height:28px;opacity:.7;transition:opacity .24s ease,transform .32s cubic-bezier(.2,.8,.2,1)}
 .dock-link.active{background:#fff}
-.dock-link.active img{opacity:1}
+.dock-link.active img{opacity:1;transform:scale(1.02)}
 .dock-link:hover:not(.active),.dock-toggle:hover{background:#303136}
 .dock-link:hover img{opacity:1}
 .dock-link[data-nav=home]{order:1}.dock-link[data-nav=projects]{order:2}.dock-link[data-nav=products]{order:3}.dock-link[data-nav=snapshots]{order:4}.dock-link[data-nav=journey]{order:5}.dock-link[data-nav=contact]{order:6}

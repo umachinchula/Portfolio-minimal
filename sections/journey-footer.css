@@ -56,6 +56,12 @@
   #journey .journey-experience h3{font-size:15px;line-height:20px;overflow-wrap:anywhere}
   #journey .journey-experience-heading p{margin-top:4px;font-size:14px;line-height:20px}
   #journey .journey-experience .journey-description{font-size:14px;line-height:20px}
+  #journey .journey-experience .journey-description{
+    display:-webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+  }
   #journey .journey-desktop-date{display:none}
   #journey .journey-mobile-date{display:block}
   #journey .journey-story{height:auto;min-height:484px;flex:none;padding:28px;overflow:hidden}
