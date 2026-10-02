@@ -50,8 +50,10 @@
 #contact .footer-card-copy small{color:#50576b;font-size:14px;line-height:20px;font-weight:500}
 #contact .footer-card-copy strong{font-size:20px;line-height:24px;font-weight:700}
 #contact .footer-record{position:absolute;z-index:1;top:35%;left:50%;display:block;width:82%;height:auto;transform:translateX(-50%)}
-#contact .footer-globe{position:absolute;left:50%;top:50%;display:block;width:88%;height:auto;opacity:.24;transform:translateX(-50%)}
-#contact .footer-folder{position:absolute;left:50%;top:0;display:block;width:155%;height:auto;transform:translateX(-50%)}
+#contact .footer-globe{position:absolute;left:50%;top:50%;display:block;width:88%;height:auto;opacity:.24;transform:translateX(-50%) rotate(0deg);animation:footer-globe-spin 30s linear infinite}
+#contact .footer-folder{position:absolute;left:50%;top:20px;display:block;width:135%;max-width:none;height:auto;transform:translateX(-50%)}
+@keyframes footer-globe-spin{to{transform:translateX(-50%) rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){#contact .footer-globe{animation:none}}
 #contact .footer-social{padding:28px}
 #contact .footer-social>strong,#contact .footer-email>strong{position:absolute;left:28px;bottom:26px;z-index:1;font-size:20px;line-height:24px;font-weight:700}
 #contact .footer-email>strong{right:24px;overflow-wrap:anywhere}
@@ -106,7 +108,7 @@
   #contact .footer-card-copy strong{font-size:16px;line-height:20px}
   #contact .footer-record{top:35%;width:110%}
   #contact .footer-globe{top:56%;width:115%}
-  #contact .footer-folder{top:0;width:155%}
+  #contact .footer-folder{top:20px;width:135%}
   #contact .footer-social>strong,#contact .footer-email>strong{left:16px;bottom:14px;font-size:16px;line-height:20px}
   #contact .footer-email>strong{right:16px;font-size:15px}
 }
