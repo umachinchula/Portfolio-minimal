@@ -26,11 +26,22 @@ function applyPortfolioCms(){
 
 applyPortfolioCms();
 
+if(!reduceMotion){
+  for(const track of document.querySelectorAll('.journey-photo-track')){
+    const original=track.querySelector('.journey-photo-set');
+    if(!original)continue;
+    const repeat=original.cloneNode(true);
+    repeat.setAttribute('aria-hidden','true');
+    track.append(repeat);
+    track.classList.add('is-looping');
+  }
+}
+
 const productVideos = [...document.querySelectorAll('[data-autoplay-video]')];
 
 if(productVideos.length){
   const setVideoPlayback=(video,play)=>{
-    if(play){
+    if(play&&!reduceMotion){
       const attempt=video.play();
       if(attempt&&typeof attempt.catch==='function')attempt.catch(()=>{});
     }else{

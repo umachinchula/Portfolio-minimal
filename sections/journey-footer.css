@@ -21,11 +21,17 @@
 #journey .journey-story-copy{position:relative;z-index:1}
 #journey .journey-story h3{margin:0 0 8px;font-size:24px;line-height:32px;font-weight:700;letter-spacing:0}
 #journey .journey-story p{margin:0;color:#50576b;font-size:18px;line-height:24px;font-weight:500}
-#journey .journey-photo-strip{position:absolute;left:50%;bottom:-29px;display:flex;align-items:flex-start;justify-content:center;width:max-content;transform:translateX(-50%);pointer-events:none}
-#journey .journey-photo-strip span{width:227px;height:227px;flex:none;padding:3px;border:2px solid #d2dae4;border-radius:14px;background:#f9fafb;overflow:hidden;transform:rotate(9deg)}
-#journey .journey-photo-strip span+span{margin-left:-56px}
-#journey .journey-photo-strip span:nth-child(even){transform:rotate(-9deg)}
-#journey .journey-photo-strip img{display:block;width:100%;height:100%;border-radius:10px;object-fit:cover}
+#journey .journey-photo-strip{position:absolute;right:0;bottom:0;left:0;height:218px;overflow:hidden}
+#journey .journey-photo-track{display:flex;align-items:flex-end;width:max-content;height:100%}
+#journey .journey-photo-track.is-looping{animation:journey-photo-loop 36s linear infinite}
+#journey .journey-photo-strip:hover .journey-photo-track{animation-play-state:paused}
+#journey .journey-photo-set{display:flex;align-items:flex-end;flex:none;height:100%;padding-right:24px}
+#journey .journey-photo-set span{display:block;flex:none;width:178px;height:205px;margin-left:-28px;padding:3px;border:2px solid #fff;border-radius:14px;background:#f9fafb;overflow:hidden;box-shadow:0 8px 15px -8px rgba(16,18,22,.28);transform:rotate(8deg)}
+#journey .journey-photo-set span:first-child{margin-left:0}
+#journey .journey-photo-set span:nth-child(even){transform:rotate(-8deg)}
+#journey .journey-photo-set img,#journey .journey-photo-set video{display:block;width:100%;height:100%;border-radius:9px;object-fit:cover}
+@keyframes journey-photo-loop{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){#journey .journey-photo-track.is-looping{animation:none}}
 
 #contact .footer-layout{height:620px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(4,minmax(0,1fr));gap:8px}
 #contact .footer-card{position:relative;display:block;min-width:0;overflow:hidden;padding:28px;border:0;border-radius:32px;background:#fff;box-shadow:0 6px 18px -12px rgba(44,45,48,.22);color:#0f1115;text-align:left;text-decoration:none}
@@ -83,10 +89,9 @@
   #journey .journey-story{height:auto;min-height:484px;flex:none;padding:28px;overflow:hidden}
   #journey .journey-story h3{margin-bottom:8px;font-size:18px;line-height:24px}
   #journey .journey-story p{font-size:14px;line-height:20px}
-  #journey .journey-photo-strip{bottom:13px;left:50%}
-  #journey .journey-photo-strip span{width:149px;height:149px;padding:2px;border-width:1px;border-radius:9px}
-  #journey .journey-photo-strip span+span{margin-left:-36px}
-  #journey .journey-photo-strip img{border-radius:7px}
+  #journey .journey-photo-strip{bottom:12px;height:164px}
+  #journey .journey-photo-set span{width:146px;height:150px;margin-left:-24px;padding:2px;border-width:1px;border-radius:9px}
+  #journey .journey-photo-set img,#journey .journey-photo-set video{border-radius:7px}
 
   #contact .footer-layout{height:auto;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:472px 216px 298px 104px 100px}
   #contact .footer-card{padding:16px;border-radius:32px}
