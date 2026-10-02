@@ -77,6 +77,29 @@ window.addEventListener('scroll',()=>{if(frame)return;frame=requestAnimationFram
 window.addEventListener('resize',updateNavigation);
 updateNavigation();
 
+const hyderabadTime=document.querySelector('[data-hyderabad-time]');
+if(hyderabadTime){
+  const updateHyderabadTime=()=>{
+    const time=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date());
+    hyderabadTime.textContent=time+' IST';
+  };
+  updateHyderabadTime();
+  setInterval(updateHyderabadTime,60000);
+}
+
+const copyEmail=document.querySelector('[data-copy-email]');
+if(copyEmail){
+  copyEmail.addEventListener('click',async()=>{
+    try{
+      await navigator.clipboard.writeText('umamahesh.chinchula@gmail.com');
+      copyEmail.setAttribute('aria-label','Email address copied');
+      setTimeout(()=>copyEmail.setAttribute('aria-label','Copy email address'),2000);
+    }catch{
+      window.location.href='mailto:umamahesh.chinchula@gmail.com';
+    }
+  });
+}
+
 dockToggle.addEventListener('click',()=>{
   const open=dockExtra.hidden;
   dockExtra.hidden=!open;
