@@ -168,7 +168,8 @@ if(caseModal){
     title.textContent=content.title;
     description.textContent=content.description;
     destination=content.href;
-    input.value='';
+    input.value='Project';
+    input.setCustomValidity('');
     caseModal.showModal();
     requestAnimationFrame(()=>input.focus());
   }
@@ -176,5 +177,14 @@ if(caseModal){
   for(const trigger of document.querySelectorAll('[data-modal-trigger]'))trigger.addEventListener('click',event=>{event.stopPropagation();openCaseModal(trigger.dataset.modalTrigger)});
   for(const card of document.querySelectorAll('[data-protected-project]'))card.addEventListener('click',event=>{if(event.target.closest('a,button,input,.ps-media-viewport'))return;openCaseModal(card.dataset.protectedProject)});
   caseModal.addEventListener('click',event=>{if(event.target===caseModal)caseModal.close()});
-  form.addEventListener('submit',event=>{event.preventDefault();if(!form.reportValidity())return;window.location.href=destination});
+  input.addEventListener('input',()=>input.setCustomValidity(''));
+  form.addEventListener('submit',event=>{
+    event.preventDefault();
+    if(input.value!=='Project'){
+      input.setCustomValidity('Use the predefined password: Project');
+      input.reportValidity();
+      return;
+    }
+    window.location.href=destination;
+  });
 }
