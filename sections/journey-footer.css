@@ -5,8 +5,8 @@
 #journey>.section-heading,#contact>.section-heading{height:52px;display:flex;align-items:flex-start;margin:0 0 40px;padding:0;border-bottom:1px solid #d2dae4}
 #journey>.section-heading h2,#contact>.section-heading h2{margin:0;font-size:24px;line-height:32px;font-weight:700;letter-spacing:0}
 #journey .journey-layout,#contact .footer-layout{width:100%;background:#f9fafb;border-radius:40px;padding:8px;overflow:hidden;box-shadow:0 7px 8px -6px rgba(44,45,48,.13)}
-#journey .journey-layout{height:620px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
-#journey .journey-experiences{display:grid;grid-template-rows:repeat(3,minmax(0,1fr));gap:8px;min-height:0}
+#journey .journey-layout{height:820px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+#journey .journey-experiences{display:grid;grid-template-rows:repeat(4,minmax(0,1fr));gap:8px;min-height:0}
 #journey .journey-experience,#journey .journey-story{background:#fff;border-radius:32px;box-shadow:0 6px 18px -12px rgba(44,45,48,.22)}
 #journey .journey-experience{padding:28px;display:flex;flex-direction:column;justify-content:space-between;min-width:0}
 #journey .journey-experience-heading{display:flex;align-items:flex-start;gap:20px;min-width:0}
