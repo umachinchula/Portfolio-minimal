@@ -7,6 +7,7 @@
 .dock-link.active img{opacity:1;transform:scale(1.02)}
 .dock-link:hover:not(.active),.dock-toggle:hover{background:#303136}
 .dock-link:hover img{opacity:1}
+.dock-link[data-nav=home]:not(.active) img,.dock-link[data-nav=explorations]:not(.active) img{filter:brightness(2)}
 .dock-link[data-nav=home]{order:1}.dock-link[data-nav=projects]{order:2}.dock-link[data-nav=explorations]{order:3}.dock-link[data-nav=products]{order:4}.dock-link[data-nav=snapshots]{order:5}.dock-link[data-nav=journey]{order:6}.dock-link[data-nav=contact]{order:7}
 .dock-toggle,.dock-extra{display:none}
 .dock-extra .dock-link[data-nav=contact]{order:1}
