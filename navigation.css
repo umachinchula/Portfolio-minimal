@@ -7,7 +7,7 @@
 .dock-link.active img{opacity:1;transform:scale(1.02)}
 .dock-link:hover:not(.active),.dock-toggle:hover{background:#303136}
 .dock-link:hover img{opacity:1}
-.dock-link[data-nav=home]{order:1}.dock-link[data-nav=projects]{order:2}.dock-link[data-nav=products]{order:3}.dock-link[data-nav=snapshots]{order:4}.dock-link[data-nav=journey]{order:5}.dock-link[data-nav=contact]{order:6}
+.dock-link[data-nav=home]{order:1}.dock-link[data-nav=projects]{order:2}.dock-link[data-nav=explorations]{order:3}.dock-link[data-nav=products]{order:4}.dock-link[data-nav=snapshots]{order:5}.dock-link[data-nav=journey]{order:6}.dock-link[data-nav=contact]{order:7}
 .dock-toggle,.dock-extra{display:none}
 .dock-extra .dock-link[data-nav=contact]{order:1}
 .dock-extra .dock-link[data-nav=journey]{order:2}
@@ -16,4 +16,4 @@
 .dock-menu[hidden]{display:none}
 .dock-menu a{display:block;padding:9px 12px;border-radius:5px;font-size:14px;white-space:nowrap}
 .dock-menu a:hover,.dock-menu a:focus-visible{background:#f3f5f6}
-@media(max-width:743px){.dock-wrap{bottom:28px}.dock,.dock.is-home{width:220px;height:58px;gap:4px;padding:4px;border-radius:14.5px}.dock-link,.dock-toggle{width:50px;height:50px;border-radius:9.5px}.dock-link img{width:27px;height:27px}.dock-toggle{display:grid;order:7;color:#fff;font:600 22px/1 Figtree,Arial,sans-serif}.dock-link[data-nav=snapshots],.dock-link[data-nav=journey],.dock-link[data-nav=contact]{display:none}.dock-extra{display:flex;height:58px;border-radius:14.5px}.dock-extra[hidden]{display:none}.dock-extra .dock-link{display:grid}.dock-wrap.menu-open .dock-toggle{font-size:18px}}
+@media(max-width:743px){.dock-wrap{bottom:28px}.dock,.dock.is-home{width:274px;height:58px;gap:4px;padding:4px;border-radius:14.5px}.dock-link,.dock-toggle{width:50px;height:50px;border-radius:9.5px}.dock-link img{width:27px;height:27px}.dock-toggle{display:grid;order:8;color:#fff;font:600 22px/1 Figtree,Arial,sans-serif}.dock-link[data-nav=snapshots],.dock-link[data-nav=journey],.dock-link[data-nav=contact]{display:none}.dock-extra{display:flex;height:58px;border-radius:14.5px}.dock-extra[hidden]{display:none}.dock-extra .dock-link{display:grid}.dock-wrap.menu-open .dock-toggle{font-size:18px}}

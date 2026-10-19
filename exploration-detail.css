@@ -1,0 +1,153 @@
+body{
+  overflow-x:hidden;
+  background:#fff;
+}
+
+.exploration-detail{
+  width:min(768px,calc(100% - 40px));
+  margin:0 auto;
+  padding:60px 0 80px;
+}
+
+.exploration-breadcrumb{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-width:0;
+  margin-bottom:20px;
+  color:var(--text-2);
+  font-size:14px;
+  line-height:20px;
+}
+
+.exploration-breadcrumb a:not(.exploration-back),
+.exploration-breadcrumb span:last-child{
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.exploration-back{
+  display:grid;
+  flex:none;
+  place-items:center;
+  width:40px;
+  height:40px;
+  border:1px solid var(--stroke-1);
+  border-radius:50%;
+  background:#fff;
+  color:var(--text-2);
+  font-size:20px;
+  line-height:1;
+  transition:background-color 180ms ease,transform 180ms ease;
+}
+
+.exploration-back:hover{
+  background:var(--bg-2);
+  transform:translateX(-2px);
+}
+
+.exploration-detail h1{
+  max-width:760px;
+  margin:0;
+  font:700 48px/58px Satoshi,Figtree,Arial,sans-serif;
+  letter-spacing:0;
+}
+
+.exploration-gallery{
+  width:calc(100vw - max(0px,(100vw - 768px)/2));
+  margin-top:44px;
+  overflow-x:auto;
+  overflow-y:hidden;
+  scrollbar-width:none;
+  cursor:grab;
+  touch-action:pan-x;
+  overscroll-behavior-inline:contain;
+}
+
+.exploration-gallery::-webkit-scrollbar{display:none}
+.exploration-gallery:active{cursor:grabbing}
+
+.exploration-gallery-track{
+  display:flex;
+  align-items:center;
+  width:max-content;
+  will-change:transform;
+}
+
+.exploration-gallery-set{
+  display:flex;
+  align-items:center;
+  gap:32px;
+  padding-right:32px;
+}
+
+.exploration-gallery-image{
+  display:block;
+  flex:none;
+  width:auto;
+  height:440px;
+  max-width:none;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+
+.exploration-gallery-device{
+  flex:none;
+  width:212px;
+  height:440px;
+  overflow:hidden;
+  border-radius:38px;
+  background-repeat:no-repeat;
+  user-select:none;
+}
+
+.exploration-gallery-set.is-single .exploration-gallery-image{
+  filter:drop-shadow(0 14px 20px rgba(15,17,21,.08));
+}
+
+@media(max-width:743px){
+  .exploration-detail{
+    width:100%;
+    padding:60px 20px 64px;
+  }
+
+  .exploration-breadcrumb{
+    gap:10px;
+    margin-bottom:16px;
+    font-size:13px;
+    line-height:18px;
+  }
+
+  .exploration-back{
+    width:40px;
+    height:40px;
+  }
+
+  .exploration-breadcrumb a:not(.exploration-back){
+    max-width:190px;
+  }
+
+  .exploration-detail h1{
+    font-size:28px;
+    line-height:29px;
+  }
+
+  .exploration-gallery{
+    width:calc(100vw - 20px);
+    margin-top:40px;
+  }
+
+  .exploration-gallery-set{
+    gap:24px;
+    padding-right:24px;
+  }
+
+  .exploration-gallery-image{
+    height:440px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .exploration-back{transition:none}
+}
