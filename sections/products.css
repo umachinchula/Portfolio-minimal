@@ -74,16 +74,21 @@
 }
 
 #products .products-story {
-  max-width: 1030px;
+  max-width: none;
   margin: 0;
   color: #1f1f1f;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 600;
-  line-height: 32px;
+  line-height: 30px;
   letter-spacing: 0;
 }
 
-#products .products-story span {
+#products .products-story-line {
+  display: block;
+  color: #1f1f1f;
+}
+
+#products .products-story .products-story-muted {
   color: var(--products-subtle);
 }
 
@@ -117,11 +122,11 @@
 }
 
 #products .products-metrics dt {
-  margin-bottom: 4px;
+  margin-bottom: 0;
   color: var(--products-muted);
   font-size: 16px;
   font-weight: 600;
-  line-height: 22px;
+  line-height: 20px;
 }
 
 #products .products-metrics dd {
@@ -184,16 +189,6 @@
   height: 14px;
 }
 
-#products .products-hanging-buddy {
-  position: absolute;
-  top: -4px;
-  left: calc(100% - 1px);
-  width: 81px;
-  height: 81px;
-  object-fit: contain;
-  pointer-events: none;
-}
-
 #products .products-love-buddy {
   position: absolute;
   top: 170px;
@@ -221,46 +216,10 @@
   line-height: 22px;
 }
 
-#products .products-future-buddies {
-  display: flex;
-  align-items: center;
-  height: 92px;
-  padding-bottom: 20px;
-}
-
-#products .products-future-buddy {
-  position: relative;
+#products .products-future-row {
   display: block;
-  width: 96px;
-  height: 72px;
-  margin-right: -22px;
-  overflow: hidden;
-}
-
-#products .products-future-buddy:last-child {
-  margin-right: 0;
-}
-
-#products .products-future-buddy img {
-  position: absolute;
-  width: 232px;
-  height: 155px;
-  max-width: none;
-}
-
-#products .products-future-buddy--ghost img {
-  top: -7px;
-  left: -52px;
-}
-
-#products .products-future-buddy--penguin img {
-  top: -7px;
-  left: -110px;
-}
-
-#products .products-future-buddy--ninja img {
-  top: -75px;
-  left: -110px;
+  width: 240px;
+  height: auto;
 }
 
 @media (min-width: 901px) and (max-width: 1279px) {
@@ -274,10 +233,6 @@
     max-width: calc(100% - 20px);
     font-size: clamp(18px, 1.85vw, 24px);
     line-height: 1.35;
-  }
-
-  #products .products-story-break {
-    display: none;
   }
 
   #products .products-metrics {
@@ -344,8 +299,8 @@
     line-height: 26px;
   }
 
-  #products .products-story br {
-    display: none;
+  #products .products-story-line {
+    display: inline;
   }
 
   #products .products-story img {
@@ -367,9 +322,9 @@
   }
 
   #products .products-metrics dt {
-    min-height: 36px;
-    font-size: 13px;
-    line-height: 18px;
+    font-size: 12px;
+    line-height: 16px;
+    white-space: nowrap;
   }
 
   #products .products-metrics dd {
@@ -389,6 +344,7 @@
     align-self: flex-end;
     width: min(360px, 108%);
     height: auto;
+    order: 3;
     margin: 18px -28px -8px 0;
   }
 
@@ -396,7 +352,7 @@
     position: relative;
     left: auto;
     bottom: auto;
-    order: 3;
+    order: 2;
     margin-top: 22px;
   }
 
@@ -406,20 +362,14 @@
     line-height: 20px;
   }
 
-  #products .products-future-buddies {
-    height: 78px;
-    padding-bottom: 6px;
+  #products .products-future-row {
+    width: min(100%, 320px);
   }
 }
 
 @media (max-width: 420px) {
   #products .products-card {
     min-height: 900px;
-  }
-
-  #products .products-hanging-buddy {
-    width: 68px;
-    height: 68px;
   }
 
   #products .products-love-buddy {
