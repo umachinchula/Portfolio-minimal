@@ -2,7 +2,7 @@ const projects={
   'social-links':{
     name:'Social Links',
     title:'Bring your work, social profiles, and personal links together in one place, making it easy to share who you are.',
-    gallery:'assets/explorations/gallery-social-links.png',
+    gallery:'assets/explorations/mockups-social-links-3x.png',
     width:1465,
     height:440,
     frames:6
@@ -10,7 +10,7 @@ const projects={
   natfit:{
     name:'NatFit',
     title:'Track your fitness, build habits, and stay consistent.',
-    gallery:'assets/explorations/gallery-natfit.png',
+    gallery:'assets/explorations/mockups-natfit-3x.png',
     width:1965,
     height:440,
     frames:8
@@ -18,7 +18,7 @@ const projects={
   'bucket-list':{
     name:'Bucket List',
     title:'Collect your dreams, plan new experiences, and make someday happen.',
-    gallery:'assets/explorations/gallery-bucket-list.png',
+    gallery:'assets/explorations/mockups-bucket-list-3x.png',
     width:1465,
     height:440,
     frames:6
@@ -26,7 +26,7 @@ const projects={
   'invoice-maker':{
     name:'Invoice Maker',
     title:'Create invoices, track payments, and spend less time on paperwork.',
-    gallery:'assets/explorations/gallery-invoice-maker.png',
+    gallery:'assets/explorations/mockups-invoice-maker-3x.png',
     width:1465,
     height:440,
     frames:6
@@ -34,7 +34,7 @@ const projects={
   'my-store':{
     name:'My Store',
     title:'Save products you love, organise them, and keep your next purchase in sight.',
-    gallery:'assets/explorations/gallery-my-store.png',
+    gallery:'assets/explorations/mockups-my-store-3x.png',
     width:228,
     height:443,
     repeat:6
@@ -42,7 +42,7 @@ const projects={
   calmier:{
     name:'Calmier',
     title:'Meditation for a calmer, stronger you.',
-    gallery:'assets/explorations/gallery-calmier.png',
+    gallery:'assets/explorations/mockups-calmier-3x.png',
     width:228,
     height:443,
     repeat:6
@@ -100,31 +100,67 @@ function createSet(hidden=false){
 }
 
 const firstSet=createSet();
-track.append(firstSet,createSet(true));
+track.append(createSet(true),firstSet,createSet(true));
 
 let pauseUntil=0;
 let lastTime=0;
 let animationFrame=0;
 let dragging=false;
+let touching=false;
 let dragStartX=0;
 let dragStartScroll=0;
+let position=0;
+let ready=false;
 
 function pause(duration=1800){pauseUntil=performance.now()+duration}
+
+function cycleWidth(){return firstSet.getBoundingClientRect().width}
+
+function wrap(){
+  const width=cycleWidth();
+  if(!width)return;
+  const previous=gallery.scrollLeft;
+  const next=width+((previous-width)%width+width)%width;
+  if(Math.abs(next-previous)>.5){
+    gallery.scrollLeft=next;
+    if(dragging)dragStartScroll+=next-previous;
+  }
+  if(dragging||performance.now()<pauseUntil||Math.abs(next-previous)>.5)position=gallery.scrollLeft;
+}
+
+requestAnimationFrame(()=>{
+  gallery.scrollLeft=cycleWidth();
+  position=gallery.scrollLeft;
+  ready=true;
+});
 
 function animate(time){
   if(!lastTime)lastTime=time;
   const delta=Math.min(time-lastTime,34);
   lastTime=time;
-  if(time>pauseUntil&&firstSet.offsetWidth){
-    gallery.scrollLeft+=delta*.035;
-    if(gallery.scrollLeft>=firstSet.offsetWidth)gallery.scrollLeft-=firstSet.offsetWidth;
+  if(ready&&!dragging&&!touching&&!document.hidden&&time>pauseUntil&&cycleWidth()){
+    position+=delta*.035;
+    if(position>=cycleWidth()*2)position-=cycleWidth();
+    gallery.scrollLeft=position;
   }
   animationFrame=requestAnimationFrame(animate);
 }
 
-gallery.addEventListener('wheel',()=>pause(),{passive:true});
-gallery.addEventListener('touchstart',()=>pause(2200),{passive:true});
+gallery.addEventListener('scroll',()=>{if(ready)wrap()},{passive:true});
+gallery.addEventListener('wheel',event=>{
+  pause();
+  if(Math.abs(event.deltaY)>Math.abs(event.deltaX)){
+    event.preventDefault();
+    gallery.scrollLeft+=event.deltaY*(event.deltaMode===1?16:1);
+  }
+},{passive:false});
+gallery.addEventListener('keydown',event=>{
+  if(['ArrowLeft','ArrowRight','Home','End','PageUp','PageDown'].includes(event.key))pause(2200);
+});
+gallery.addEventListener('touchstart',()=>{touching=true;pause(2200)},{passive:true});
 gallery.addEventListener('touchmove',()=>pause(2200),{passive:true});
+gallery.addEventListener('touchend',()=>{touching=false;pause(2200)},{passive:true});
+gallery.addEventListener('touchcancel',()=>{touching=false;pause(2200)},{passive:true});
 gallery.addEventListener('pointerdown',event=>{
   if(event.pointerType!=='mouse')return;
   dragging=true;
@@ -147,4 +183,10 @@ gallery.addEventListener('pointerup',event=>{
 gallery.addEventListener('pointercancel',()=>{dragging=false;pause(1600)});
 
 if(!reduceMotion)animationFrame=requestAnimationFrame(animate);
-window.addEventListener('pagehide',()=>cancelAnimationFrame(animationFrame),{once:true});
+window.addEventListener('pagehide',()=>cancelAnimationFrame(animationFrame));
+window.addEventListener('pageshow',event=>{
+  if(event.persisted&&!reduceMotion){
+    lastTime=0;
+    animationFrame=requestAnimationFrame(animate);
+  }
+});

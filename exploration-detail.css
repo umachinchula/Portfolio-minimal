@@ -50,18 +50,18 @@ body{
 .exploration-detail h1{
   max-width:760px;
   margin:0;
-  font:700 48px/58px Satoshi,Figtree,Arial,sans-serif;
+  font:800 48px/58px Figtree,Arial,sans-serif;
   letter-spacing:0;
 }
 
 .exploration-gallery{
-  width:calc(100vw - max(0px,(100vw - 768px)/2));
+  width:100%;
   margin-top:44px;
   overflow-x:auto;
   overflow-y:hidden;
   scrollbar-width:none;
   cursor:grab;
-  touch-action:pan-x;
+  touch-action:pan-x pan-y;
   overscroll-behavior-inline:contain;
 }
 
@@ -78,8 +78,8 @@ body{
 .exploration-gallery-set{
   display:flex;
   align-items:center;
-  gap:32px;
-  padding-right:32px;
+  gap:36.667px;
+  padding-right:36.667px;
 }
 
 .exploration-gallery-image{
@@ -129,18 +129,18 @@ body{
   }
 
   .exploration-detail h1{
-    font-size:28px;
+    font-size:26px;
     line-height:29px;
   }
 
   .exploration-gallery{
-    width:calc(100vw - 20px);
+    width:100%;
     margin-top:40px;
   }
 
   .exploration-gallery-set{
-    gap:24px;
-    padding-right:24px;
+    gap:26px;
+    padding-right:26px;
   }
 
   .exploration-gallery-image{
