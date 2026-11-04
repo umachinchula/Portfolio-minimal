@@ -20,3 +20,33 @@
 @media(min-width:744px) and (max-width:1050px){.exploration-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:743px){.exploration-section{padding:64px 0 110px}.exploration-heading{height:auto;min-height:44px;padding-bottom:20px;margin-bottom:24px}.exploration-frame{border-radius:32px}.exploration-grid{grid-template-columns:1fr}.exploration-card{padding:24px 20px 48px;border-radius:26px}.exploration-card h3{min-height:48px}}
 @media(prefers-reduced-motion:reduce){.exploration-card{transition:none}}
+
+.zepto-phone {
+  position: relative;
+  width: 187px;
+  height: 385px;
+  flex: none;
+  filter: drop-shadow(0 10px 10px rgb(0 0 0 / 10%));
+}
+.exploration-card-media .zepto-phone img {
+  position: absolute;
+  transform: none;
+}
+.exploration-card-media .zepto-phone .zepto-screen {
+  inset: 6px auto auto 7px;
+  width: 173px;
+  height: 374px;
+  border-radius: 24px;
+  object-fit: cover;
+}
+.exploration-card-media .zepto-phone .zepto-frame {
+  inset: 0;
+  width: 187px;
+  height: auto;
+}
+
+@media (min-width: 901px) {
+  .exploration-section { width: min(800px, calc(100% - 80px)); }
+  .exploration-frame { padding: 4px; }
+  .exploration-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; }
+}

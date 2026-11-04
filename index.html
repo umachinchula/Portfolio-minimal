@@ -71,25 +71,50 @@
   </script>
   <link rel="stylesheet" href="base.css">
   <link rel="stylesheet" href="home.css?v=hero-v2">
-  <link rel="stylesheet" href="navigation.css?v=20261019-explorations">
-  <link rel="stylesheet" href="sections/projects-snapshots.css">
-  <link rel="stylesheet" href="sections/explorations.css?v=20261019-native">
-  <link rel="stylesheet" href="sections/products.css">
-  <link rel="stylesheet" href="sections/journey-footer.css">
+  <link rel="stylesheet" href="navigation.css?v=20261104-static-dock">
+  <link rel="stylesheet" href="sections/projects-snapshots.css?v=20261104-cards">
+  <link rel="stylesheet" href="sections/explorations.css?v=20261104">
+  <link rel="stylesheet" href="sections/products.css?v=20261104-cards">
+  <link rel="stylesheet" href="sections/journey-footer.css?v=20261104">
+  <link rel="stylesheet" href="v2-hero.css?v=20261104-portrait">
+  <link rel="stylesheet" href="v2-footer.css?v=20261104-playground">
+  <link rel="stylesheet" href="v2-mode.css?v=20261104">
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
 </head>
 <body>
   <main>
-    <section class="hero shell" id="home" aria-labelledby="home-title">
-      <div class="hero-content">
-        <h1 id="home-title"><span class="hero-line">Hi, it’s <span class="hero-inline hero-portrait"><img src="assets/hero-v2/portrait.png" alt=""></span> <span class="hero-ink">Uma Maheswara Rao</span> a <span class="hero-inline hero-flower"><img src="assets/hero-v2/flower.png" alt=""></span> <span class="role">Product Designer</span> <span class="hero-ink">who can <span class="hero-inline hero-plane"><img src="assets/hero-v2/plane.png" alt=""></span> build also.</span></span> <span class="hero-line"><span class="hero-ink">Deciding what’s worth building</span> and <span class="hero-ink">how it <span class="hero-inline"><img src="assets/hero-v2/growth.png" alt=""></span> grows,</span> is the hard part. That’s what I design.</span> <span class="hero-line">And when it needs building <span class="hero-ink"><span class="hero-inline"><img src="assets/hero-v2/rocket.png" alt=""></span> I build it too.</span></span></h1>
-        <div class="hero-facts">
-          <div class="hero-fact"><span class="hero-fact-label">Current</span><strong>Open to work</strong></div>
-          <div class="hero-fact"><span class="hero-fact-label">Last Company</span><div class="hero-company"><strong>UI/UX Designer</strong><a href="https://plutonapps.com" target="_blank" rel="noopener noreferrer" aria-label="Plutonapps (opens in a new tab)"><img loading="lazy" decoding="async" src="assets/figma-journey/company-mark.png" alt="">Plutonapps</a></div></div>
-          <div class="hero-fact"><span class="hero-fact-label">Know more</span><a href="https://drive.google.com/file/d/1TpWmb9dkaOV8U6zAq7eAx34eW2rJzZus/view?usp=sharing" target="_blank" rel="noopener noreferrer" aria-label="Resume on Google Drive (opens in a new tab)">Resume <span class="arrow-icon" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/figma-shared/arrow.svg" alt=""></span></a></div>
-        </div>
+<section id="home" class="intro v2-hero" aria-labelledby="home-title">
+  <video class="intro-sky" src="quick-mode/assets/sky-animation-preview.mp4" poster="quick-mode/assets/sky.png" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+  <div class="content">
+    <div class="hero-copy-group">
+      <h1 id="home-title"><span class="hero-dimmable">Hi, it’s <span class="sticker hello"><img src="quick-mode/assets/8576a.png" alt=""></span></span> <span class="hero-focus hero-dimmable" data-preview="name" tabindex="0">Uma Maheswara Rao</span></h1>
+      <p class="hand tagline"><span class="hero-focus hero-dimmable" data-preview="designer" tabindex="0"><span class="sticker flower"><img src="quick-mode/assets/cc72b.png" alt=""></span> <span class="gradient">Product Designer,</span></span> <span class="hero-focus hero-dimmable" data-preview="editor" tabindex="0"><span class="sticker plane"><img src="quick-mode/assets/d008a.png" alt=""></span> curious builder, a newbie Editor</span> <span class="hero-focus hero-dimmable" data-preview="location" tabindex="0"><img class="inline" src="quick-mode/assets/hero-social/location-icon.png" alt=""> Visakhapatnam.</span></p>
+    </div>
+    <div id="hero-preview" class="hero-preview" aria-hidden="true">
+      <figure class="hero-preview-card hero-preview-name" data-preview-card="name"><img src="quick-mode/assets/uma-name-preview.jpg" alt=""><figcaption>Yoo It’s meee!!!</figcaption></figure>
+      <figure class="hero-preview-card hero-preview-designer" data-preview-card="designer"><video src="quick-mode/assets/product-designer-preview.mp4" muted loop playsinline preload="auto"></video><figcaption>U can say Design engineer!!!</figcaption></figure>
+      <figure class="hero-preview-card hero-preview-editor" data-preview-card="editor"><video src="quick-mode/assets/editor-preview.mp4" muted loop playsinline preload="metadata"></video><figcaption>A newbie Editor</figcaption></figure>
+      <figure class="hero-preview-card hero-preview-location" data-preview-card="location"><img src="quick-mode/assets/location-preview.png" alt=""><figcaption>The city of destiny</figcaption></figure>
+      <figure class="hero-preview-card hero-preview-company" data-preview-card="company"><img src="quick-mode/assets/plutonapps-team-preview.jpg" alt=""><figcaption>Damn this team is something else!!!!</figcaption></figure>
+      <figure class="hero-preview-card hero-preview-social" data-preview-card="resume"><img src="quick-mode/assets/hero-social/resume-preview.png" alt=""><figcaption>Criminal No.001</figcaption></figure>
+      <figure class="hero-preview-card hero-preview-social" data-preview-card="linkedin"><img src="quick-mode/assets/hero-social/linkedin-preview.png" alt=""><figcaption>Professional Drama</figcaption></figure>
+      <figure class="hero-preview-card hero-preview-social" data-preview-card="mail"><img src="quick-mode/assets/hero-social/mail-preview.png" alt=""><figcaption>Still Waiting!!!</figcaption></figure>
+      <figure class="hero-preview-card hero-preview-social" data-preview-card="medium"><img src="quick-mode/assets/hero-social/medium-preview.png" alt=""><figcaption>Plot Twists</figcaption></figure>
+      <figure class="hero-preview-card hero-preview-social" data-preview-card="instagram"><img src="quick-mode/assets/hero-social/instagram-preview.png" alt=""><figcaption>Off Duty dude!!</figcaption></figure>
+    </div>
+    <p><span class="hero-dimmable">So, currently <span class="sticker work"><img src="quick-mode/assets/ff868.png" alt=""></span> Open to work. Most recently, <span class="sticker recent"><img src="quick-mode/assets/b6411.png" alt=""></span> I designed at </span><span class="hero-focus hero-dimmable" data-preview="company" tabindex="0"><a href="https://plutonapps.com" target="_blank" rel="noopener"><img class="inline" src="quick-mode/assets/52b71.png" alt=""> Plutonapps</a> (WhiteRose Lab Pvt Ltd).</span><span class="hero-dimmable"> I like figuring out what’s <img class="inline" src="quick-mode/assets/70f9c.png" alt=""> worth building, making it feel right, and - when I can - building it myself 🚀 I tend to get a little lost in the details 👀</span></p>
+    <div class="hero-social-block">
+      <p class="hero-dimmable">If you’re working on something interesting, say hello 👋</p>
+      <div class="social intro-social">
+        <a class="hero-focus hero-dimmable" data-preview="resume" href="https://drive.google.com/file/d/176I7PRUYqwtuqBap2k3Dp9fvCp5j49l_/view?usp=sharing" target="_blank" rel="noopener noreferrer"><img class="social-icon" src="quick-mode/assets/hero-social/resume-icon.png" alt=""><span>Resume</span><img class="social-external" src="quick-mode/assets/hero-social/external-arrow.svg" alt=""></a>
+        <a class="hero-focus hero-dimmable" data-preview="linkedin" href="https://www.linkedin.com/in/chinchulauma/" target="_blank" rel="noopener noreferrer"><img class="social-icon" src="quick-mode/assets/hero-social/linkedin-icon.png" alt=""><span>LinkedIn</span><img class="social-external" src="quick-mode/assets/hero-social/external-arrow.svg" alt=""></a>
+        <a class="hero-focus hero-dimmable" data-preview="mail" href="mailto:umamahesh.chinchula@gmail.com" target="_blank" rel="noopener"><img class="social-icon" src="quick-mode/assets/hero-social/mail-icon.png" alt=""><span>Mail</span><img class="social-external" src="quick-mode/assets/hero-social/external-arrow.svg" alt=""></a>
+        <a class="hero-focus hero-dimmable" data-preview="medium" href="https://medium.com/@umamahesh.chinchula" target="_blank" rel="noopener noreferrer"><img class="social-icon" src="quick-mode/assets/hero-social/medium-icon.png" alt=""><span>Medium</span><img class="social-external" src="quick-mode/assets/hero-social/external-arrow.svg" alt=""></a>
+        <a class="hero-focus hero-dimmable" data-preview="instagram" href="https://www.instagram.com/uxbyuma?srtk=MXJkbHM5ajR3bHQzOQ%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener"><img class="social-icon" src="quick-mode/assets/hero-social/instagram-icon.png" alt=""><span>Instagram</span><img class="social-external" src="quick-mode/assets/hero-social/external-arrow.svg" alt=""></a>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
     <section class="shell ps-section" id="projects" aria-labelledby="projects-heading">
   <div class="section-heading ps-heading">
     <h2 id="projects-heading">Selected Projects &amp; Case Studies</h2>
@@ -100,11 +125,11 @@
       <div class="ps-card-inner">
         <div class="ps-card-copy">
           <span class="ps-eyebrow">@PITCH40</span>
-          <h3 id="pitch40-title"><span>Built Pitch40 into a </span><strong>clearer startup-investor decision platform</strong><span>, from founder onboarding and verification to investor matching, so </span><strong>investors could understand fit faster.</strong></h3>
+          <h3 id="pitch40-title"><strong>Redesigned Pitch40 end to end</strong><span>, from founder onboarding and admin verification to investor matching and feed state, so </span><strong>investors decide in under 5 minutes.</strong></h3>
           <div class="ps-tags"><span>#PRODUCT DESIGN</span><span>#B2B FINTECH</span></div>
           <div class="ps-actions">
             <a class="ps-pill ps-pill-light" href="https://pitch40.com/" target="_blank" rel="noopener noreferrer"><span>Pitch40.com</span><span class="ps-pill-icon"><img loading="lazy" decoding="async" src="assets/figma-projects/arrow-up-right.svg" alt="" width="14" height="14"></span></a>
-            <button class="ps-pill ps-pill-dark ps-private ps-modal-trigger" type="button" data-modal-trigger="pitch40"><span>Read Case study</span><span class="ps-pill-icon"><img loading="lazy" decoding="async" src="assets/figma-projects/arrow-up-right.svg" alt="" width="14" height="14"></span></button>
+            <button class="ps-pill ps-pill-dark ps-private ps-modal-trigger" type="button" data-modal-trigger="pitch40"><span>Enter Password to Learn more</span><span class="ps-pill-icon"><img loading="lazy" decoding="async" src="assets/figma-projects/arrow-up-right.svg" alt="" width="14" height="14"></span></button>
           </div>
         </div>
         <div class="ps-media-viewport" tabindex="0" aria-label="Pitch40 project images; scroll horizontally for more">
@@ -178,6 +203,40 @@
     </div>
   </dialog>
 </section>
+    <section id="products" class="shell" aria-labelledby="products-heading">
+  <div class="section-heading products-heading">
+    <h2 id="products-heading">Own Shipped Products</h2>
+  </div>
+
+  <div class="products-frame">
+    <article class="products-card products-card--snapbud" aria-labelledby="snapbud-heading">
+      <div class="products-card-copy">
+        <h3 id="snapbud-heading">I Built SnapBud</h3>
+        <p class="products-story">
+          <span class="products-story-line">I kept taking <img src="assets/products-v3/screenshots.png" alt="" aria-hidden="true"> screenshots <span class="products-story-muted">for</span> <img src="assets/products-v3/chatgpt.png" alt="" aria-hidden="true"> ChatGPT, <img src="assets/products-v3/claude.png" alt="" aria-hidden="true"> for Claude, <span class="products-story-muted">and my workflow.</span></span>
+          <span class="products-story-line">Then I forgot to <img src="assets/products-v3/trash.png" alt="" aria-hidden="true"> delete them. So I built <img class="products-story-icon--snapbud" src="assets/products-v3/snapbud-icon.png" alt="" aria-hidden="true"> SnapBud - a tiny buddy that captures, organizes, &amp; clears them when they are <img src="assets/products-v3/clock.png" alt="" aria-hidden="true"> no longer needed.</span>
+        </p>
+        <dl class="products-metrics">
+          <div><dt>Active Users</dt><dd>100+</dd></div>
+          <div><dt>Sign Ups</dt><dd>300+</dd></div>
+          <div><dt>Organic visitors</dt><dd>3.7K+</dd></div>
+        </dl>
+        <div class="products-cta-wrap">
+          <a class="products-button products-button--dark" href="https://snapbud.space" target="_blank" rel="noopener noreferrer">
+            <span>Download Now</span><span class="products-button-icon"><img src="assets/figma-products/arrow-dark.svg" alt="" width="14" height="14"></span>
+          </a>
+        </div>
+      </div>
+
+      <img class="products-love-buddy" src="assets/products-v2/snapbud-love.png" alt="SnapBud buddy holding a pixel heart" loading="lazy" decoding="async">
+
+      <div class="products-future">
+        <p>New buddies, a little AI magic is coming ✨</p>
+        <img class="products-future-row" src="assets/products-v3/upcoming-buddies-row.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+      </div>
+    </article>
+  </div>
+</section>
     <section class="shell exploration-section" id="explorations" aria-labelledby="explorations-heading">
   <div class="section-heading exploration-heading">
     <h2 id="explorations-heading">Ideas, products, and UI explorations.</h2>
@@ -206,68 +265,25 @@
         </div>
         <div class="exploration-card-media"><img src="assets/explorations/phone-bucket-list-3x.png" alt="Bucket List mobile UI mockup" loading="lazy" decoding="async"></div>
       </a>
-      <a class="exploration-card" href="exploration.html?project=invoice-maker" aria-label="View Invoice Maker UI exploration">
+      <article class="exploration-card">
         <div class="exploration-card-copy">
-          <div class="exploration-card-top"><span>@Invoice Maker</span><span class="exploration-card-arrow" aria-hidden="true"><img src="assets/figma-shared/arrow.svg" alt="" width="10" height="10"></span></div>
-          <h3>Create <strong>invoices</strong>, track <strong>payments</strong>, and spend less time on paperwork.</h3>
+          <div class="exploration-card-top"><span>@Zepto Late Hours</span></div>
+          <h3>Shop <strong>late-night essentials</strong>, know what's in stock, and shop tonight</h3>
         </div>
-        <div class="exploration-card-media"><img src="assets/explorations/phone-invoice-maker-3x.png" alt="Invoice Maker mobile UI mockup" loading="lazy" decoding="async"></div>
-      </a>
-      <div class="exploration-card exploration-card-locked" aria-label="My Store UI exploration coming soon">
-        <div class="exploration-card-copy">
-          <div class="exploration-card-top"><span>@My Store</span><span class="exploration-card-status">Coming soon</span></div>
-          <h3><strong>Save products</strong> you <strong>love</strong>, organise it, &amp; your next purchase in <strong>sight.</strong></h3>
+        <div class="exploration-card-media">
+          <div class="zepto-phone">
+            <img class="zepto-screen" src="assets/explorations/zepto-screen.png" alt="Zepto Late Hours mobile UI mockup" loading="lazy" decoding="async">
+            <img class="zepto-frame" src="assets/explorations/zepto-frame.svg" alt="" loading="lazy" decoding="async">
+          </div>
         </div>
-        <div class="exploration-card-media"><img src="assets/explorations/mockups-my-store-3x.png" alt="My Store mobile UI mockup" loading="lazy" decoding="async"></div>
-      </div>
-      <div class="exploration-card exploration-card-locked" aria-label="Calmier UI exploration coming soon">
-        <div class="exploration-card-copy">
-          <div class="exploration-card-top"><span>@Calmier</span><span class="exploration-card-status">Coming soon</span></div>
-          <h3>Meditation for a <strong>calmer, stronger</strong> you.</h3>
-        </div>
-        <div class="exploration-card-media"><img src="assets/explorations/mockups-calmier-3x.png" alt="Calmier mobile UI mockup" loading="lazy" decoding="async"></div>
-      </div>
+      </article>
     </div>
-  </div>
-</section>
-    <section id="products" class="shell" aria-labelledby="products-heading">
-  <div class="section-heading products-heading">
-    <h2 id="products-heading">Own Shipped Products</h2>
-  </div>
-
-  <div class="products-frame">
-    <article class="products-card products-card--snapbud" aria-labelledby="snapbud-heading">
-      <div class="products-card-copy">
-        <h3 id="snapbud-heading">I Built SnapBud</h3>
-        <p class="products-story">
-          <span class="products-story-line">I kept taking <img src="assets/products-v3/screenshots.png" alt="" aria-hidden="true"> screenshots <span class="products-story-muted">for</span> <img src="assets/products-v3/chatgpt.png" alt="" aria-hidden="true"> ChatGPT, <img src="assets/products-v3/claude.png" alt="" aria-hidden="true"> for Claude, <span class="products-story-muted">and my workflow.</span></span>
-          <span class="products-story-line">Then I forgot to <img src="assets/products-v3/trash.png" alt="" aria-hidden="true"> delete them. So I built <img class="products-story-icon--snapbud" src="assets/products-v3/snapbud-icon.png" alt="" aria-hidden="true"> SnapBud - a tiny buddy that captures, organizes, &amp; clears them</span>
-          <span class="products-story-line">when they are <img src="assets/products-v3/clock.png" alt="" aria-hidden="true"> no longer needed.</span>
-        </p>
-        <dl class="products-metrics">
-          <div><dt>Active Users</dt><dd>100+</dd></div>
-          <div><dt>Sign Ups</dt><dd>300+</dd></div>
-          <div><dt>Organic visitors</dt><dd>3.7K+</dd></div>
-        </dl>
-        <div class="products-cta-wrap">
-          <a class="products-button products-button--dark" href="https://snapbud.space" target="_blank" rel="noopener noreferrer">
-            <span>Download Now</span><span class="products-button-icon"><img src="assets/figma-products/arrow-dark.svg" alt="" width="14" height="14"></span>
-          </a>
-        </div>
-      </div>
-
-      <img class="products-love-buddy" src="assets/products-v2/snapbud-love.png" alt="SnapBud buddy holding a pixel heart" loading="lazy" decoding="async">
-
-      <div class="products-future">
-        <p>New buddies, a little AI magic is coming ✨</p>
-        <img class="products-future-row" src="assets/products-v3/upcoming-buddies-row.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
-      </div>
-    </article>
   </div>
 </section>
     <section class="shell ps-section" id="snapshots" aria-labelledby="snapshots-heading">
   <div class="section-heading ps-heading">
-    <h2 id="snapshots-heading">Snapshots</h2>
+    <h2 id="snapshots-heading">Websites</h2>
+    <span class="website-count" data-count-for="snapshots">1 of 2</span>
   </div>
 
   <div class="ps-stack" style="--stack-cards: 2">
@@ -317,7 +333,7 @@
       <article class="journey-experience">
         <div class="journey-experience-heading">
           <img loading="lazy" decoding="async" src="assets/figma-journey/company-mark.png" alt="Plutonapps" width="52" height="52" />
-          <div><h3><span>UI/UX Designer</span> @Plutonapps</h3><p>Oct 2024 - Jul 2026</p></div>
+          <div><h3><span>UI/UX Designer</span> @Plutonapps (WhiteRose Lab Pvt Ltd)</h3><p>Oct 2024 - Jul 2026</p></div>
         </div>
         <p class="journey-description">Designed learning tools across classroom and student experiences, including unified search, AI notebooks.</p>
       </article>
@@ -331,7 +347,7 @@
       <article class="journey-experience">
         <div class="journey-experience-heading">
           <img loading="lazy" decoding="async" src="assets/journey-v2/kl.png" alt="KL" width="52" height="52" />
-          <div><h3><span>Product Designer</span> @KL</h3><p class="journey-desktop-date">Mar 2024 - Jun 2024</p><p class="journey-mobile-date">Mar 2024 - Jun 2024 [Contract]</p></div>
+          <div><h3><span>Product Designer</span> @Knowvation Learnings</h3><p class="journey-desktop-date">Mar 2024 - Jun 2024</p><p class="journey-mobile-date">Mar 2024 - Jun 2024 [Contract]</p></div>
         </div>
         <p class="journey-description">Redesigned the website and co-designed Hackverse, a coding practice and hackathon platform.</p>
       </article>
@@ -345,7 +361,7 @@
     </div>
     <aside class="journey-story">
       <div class="journey-story-copy">
-        <h3>“If you want to go fast, go alone.<br />If you want to go far, go together.”</h3>
+        <h3>“If you want to go fast, go alone.<br /> If you want to go far, go together.”</h3>
         <p>Yeah, we’re still together. Some became teammates, some became friends, but they’re still part of my journey. We’ve grown and changed along the way, yet somehow, we’re still going far together.</p>
       </div>
       <div class="journey-photo-strip" aria-hidden="true">
@@ -363,7 +379,8 @@
     </aside>
   </div>
 </section>
-    <footer class="shell portfolio-footer" id="contact" aria-labelledby="footer-heading" data-figma-desktop="90:62981" data-figma-mobile="98:42834">
+<template id="archived-where-im-headed">
+    <section class="shell portfolio-footer" id="where-im-headed" aria-labelledby="footer-heading" data-figma-desktop="90:62981" data-figma-mobile="98:42834">
   <div class="section-heading"><h2 id="footer-heading">Where I’m headed</h2></div>
   <div class="footer-layout">
     <div class="footer-card footer-bio">
@@ -398,11 +415,33 @@
       <strong>umamahesh.chinchula@gmail.com</strong>
     </button>
   </div>
+</section>
+</template>
+<footer id="contact" class="v2-footer">
+  <div class="content footer-copy">
+    <span class="brand"><img src="quick-mode/assets/c4ce3.png" alt="Uma"></span>
+    <p>Thanks for scrolling all the way here! I am making this site with all my heart and codex tokens. A LOT more to come, stay tuned &lt;3</p>
+    <div class="social">
+      <a href="https://drive.google.com/file/d/176I7PRUYqwtuqBap2k3Dp9fvCp5j49l_/view?usp=sharing" target="_blank" rel="noopener"><img src="quick-mode/assets/hero-social/resume-icon.png" width="20" height="20" alt="">Resume</a>
+      <a href="https://www.linkedin.com/in/chinchulauma/" target="_blank" rel="noopener"><img src="quick-mode/assets/hero-social/linkedin-icon.png" width="20" height="20" alt="">LinkedIn</a>
+      <a href="mailto:umamahesh.chinchula@gmail.com" target="_blank" rel="noopener"><img src="quick-mode/assets/hero-social/mail-icon.png" width="20" height="20" alt="">Mail</a>
+      <a href="https://medium.com/@umamahesh.chinchula" target="_blank" rel="noopener"><img src="quick-mode/assets/hero-social/medium-icon.png" width="20" height="20" alt="">Medium</a>
+      <a href="https://www.instagram.com/uxbyuma?srtk=MXJkbHM5ajR3bHQzOQ%3D%3D&amp;utm_source=qr" target="_blank" rel="noopener"><img src="quick-mode/assets/hero-social/instagram-icon.png" width="20" height="20" alt="">Instagram</a>
+    </div>
+  </div>
+  <section id="surf-game" class="surf-game" tabindex="0" role="application" aria-label="Surfboard buoy game" aria-describedby="surf-game-instruction">
+    <button id="surf-sound-toggle" class="surf-game__sound" type="button" aria-pressed="false" aria-label="Mute game sounds">Sound on</button>
+    <div class="surf-game__score" aria-live="polite"><span class="sr-only">Score </span><span id="surf-score">0</span></div>
+    <div id="surf-game-instruction" class="surf-game__instruction"><span>Tap or press space to play</span></div>
+    <div id="surf-obstacles" class="surf-game__obstacles" aria-hidden="true"></div>
+    <div id="surf-player" class="surf-game__player" aria-hidden="true"><img src="quick-mode/assets/surfer.png" alt=""></div>
+    <div id="surf-game-over" class="surf-game__over" hidden><p>Game over</p><strong><span class="sr-only">Score </span><span id="surf-final-score">0</span></strong><button id="surf-play-again" type="button">Play again</button></div>
+  </section>
 </footer>
   </main>
   <nav class="dock-wrap" aria-label="Primary navigation">
     <div class="dock-extra" hidden>
-      <a class="dock-link" href="#contact" data-nav="contact" aria-label="About and contact" title="About and contact"><img loading="lazy" decoding="async" src="assets/figma-shared/user.svg" alt=""></a>
+      <a class="dock-link" href="#contact" data-nav="contact" aria-label="About and contact" title="About and contact"><img loading="lazy" decoding="async" src="assets/figma-shared/contact-balls.svg" alt=""></a>
       <a class="dock-link" href="#journey" data-nav="journey" aria-label="Journey so far" title="Journey so far"><img loading="lazy" decoding="async" src="assets/figma-shared/journey.svg" alt=""></a>
       <a class="dock-link" href="#snapshots" data-nav="snapshots" aria-label="Snapshots" title="Snapshots"><img loading="lazy" decoding="async" src="assets/figma-shared/snapshots.svg" alt=""></a>
     </div>
@@ -413,10 +452,13 @@
       <a class="dock-link" href="#products" data-nav="products" aria-label="Own shipped products" title="Own shipped products"><img loading="lazy" decoding="async" src="assets/figma-shared/products.svg" alt=""></a>
       <a class="dock-link" href="#snapshots" data-nav="snapshots" aria-label="Snapshots" title="Snapshots"><img loading="lazy" decoding="async" src="assets/figma-shared/snapshots.svg" alt=""></a>
       <a class="dock-link" href="#journey" data-nav="journey" aria-label="Journey so far" title="Journey so far"><img loading="lazy" decoding="async" src="assets/figma-shared/journey.svg" alt=""></a>
-      <a class="dock-link" href="#contact" data-nav="contact" aria-label="About and contact" title="About and contact"><img loading="lazy" decoding="async" src="assets/figma-shared/user.svg" alt=""></a>
+      <a class="dock-link" href="#contact" data-nav="contact" aria-label="About and contact" title="About and contact"><img loading="lazy" decoding="async" src="assets/figma-shared/contact-balls.svg" alt=""></a>
       <button class="dock-toggle" type="button" aria-label="More navigation" aria-expanded="false" title="More navigation">+</button>
     </div>
   </nav>
-  <script src="navigation.js" defer></script>
+  <script src="navigation.js?v=20261104-static-dock" defer></script>
+  <script src="v2-mode.js?v=20261104" defer></script>
+  <script type="module" src="v2-hero.js"></script>
+  <script src="v2-footer.js?v=20261104-playground" defer></script>
 </body>
 </html>

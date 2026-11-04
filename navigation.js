@@ -1,9 +1,16 @@
 const sections = [...document.querySelectorAll('main > section, main > footer')];
 const navLinks = [...document.querySelectorAll('[data-nav]')];
 const dock = document.querySelector('.dock');
-const dockWrap = document.querySelector('.dock-wrap');
-const dockExtra = document.querySelector('.dock-extra');
-const dockToggle = document.querySelector('.dock-toggle');
+const dockOrder = ['home', 'projects', 'products', 'explorations', 'snapshots', 'journey', 'contact'];
+for (const id of dockOrder) {
+  const link = dock.querySelector(`[data-nav="${id}"]`);
+  if (!link) continue;
+  if (id === 'snapshots') {
+    link.setAttribute('aria-label', 'Websites');
+    link.title = 'Websites';
+  }
+  dock.append(link);
+}
 const counters = [...document.querySelectorAll('[data-count-for]')];
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -64,13 +71,14 @@ if(productVideos.length){
 function updateNavigation(){
   const marker=window.scrollY+window.innerHeight*.45;
   let current=sections[0];
-  for(const section of sections){if(section.offsetTop<=marker)current=section}
+  for(const section of sections){
+    if(section.getClientRects().length&&section.offsetTop<=marker)current=section;
+  }
   for(const link of navLinks){
     const active=link.dataset.nav===current.id;
     link.classList.toggle('active',active);
     if(active)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');
   }
-  dock.classList.toggle('is-home',current.id==='home');
   for(const counter of counters){
     const cards=[...document.querySelectorAll(`[data-stack="${counter.dataset.countFor}"]`)];
     if(!cards.length)continue;
@@ -86,6 +94,7 @@ function updateNavigation(){
 let frame=0;
 window.addEventListener('scroll',()=>{if(frame)return;frame=requestAnimationFrame(()=>{frame=0;updateNavigation()})},{passive:true});
 window.addEventListener('resize',updateNavigation);
+window.addEventListener('portfolio-mode-change',updateNavigation);
 updateNavigation();
 
 const hyderabadTime=document.querySelector('[data-hyderabad-time]');
@@ -108,42 +117,6 @@ if(copyEmail){
     }catch{
       window.location.href='mailto:umamahesh.chinchula@gmail.com';
     }
-  });
-}
-
-dockToggle.addEventListener('click',()=>{
-  const open=dockExtra.hidden;
-  dockExtra.hidden=!open;
-  dockWrap.classList.toggle('menu-open',open);
-  dockToggle.setAttribute('aria-expanded',String(open));
-  dockToggle.textContent=open?'×':'+';
-  dockToggle.setAttribute('aria-label',open?'Close navigation':'More navigation');
-});
-for(const link of dockWrap.querySelectorAll('a'))link.addEventListener('click',()=>{dockExtra.hidden=true;dockWrap.classList.remove('menu-open');dockToggle.setAttribute('aria-expanded','false');dockToggle.textContent='+'});
-document.addEventListener('keydown',event=>{if(event.key==='Escape'){dockExtra.hidden=true;dockWrap.classList.remove('menu-open');dockToggle.setAttribute('aria-expanded','false');dockToggle.textContent='+'}});
-
-if(!reduceMotion&&window.Lenis){
-  const lenis=new Lenis({
-    duration:1.25,
-    easing:t=>Math.min(1,1.001-Math.pow(2,-10*t)),
-    smoothWheel:true,
-    smoothTouch:false,
-    wheelMultiplier:.86,
-    touchMultiplier:1.2
-  });
-  function raf(time){
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
-  lenis.on('scroll',updateNavigation);
-  document.addEventListener('click',event=>{
-    const anchor=event.target.closest('a[href^="#"]');
-    if(!anchor)return;
-    const target=document.querySelector(anchor.getAttribute('href'));
-    if(!target)return;
-    event.preventDefault();
-    lenis.scrollTo(target,{offset:-24,duration:1.1});
   });
 }
 

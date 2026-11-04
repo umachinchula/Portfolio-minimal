@@ -1,0 +1,20 @@
+.dock-wrap .v2-mode-control button[aria-pressed="true"] {
+  background: linear-gradient(120deg, #06b976, #3d58d9);
+}
+
+.v2-mode-control button img { opacity: .7; }
+.v2-mode-control button[aria-pressed="true"] img {
+  filter: brightness(0) invert(1);
+  opacity: 1;
+}
+
+[data-portfolio-mode="quick"] :is(#explorations, #snapshots, #journey, #where-im-headed),
+[data-portfolio-mode="quick"] :is([data-nav="explorations"], [data-nav="snapshots"], [data-nav="journey"], [data-nav="where-im-headed"]),
+[data-portfolio-mode="quick"] nav :is([href="#explorations"], [href="#snapshots"], [href="#journey"], [href="#where-im-headed"]) {
+  display: none;
+}
+
+/* Match the dock button selector's specificity. */
+[data-portfolio-mode="quick"] .dock-wrap .dock-link:is([data-nav="explorations"], [data-nav="snapshots"], [data-nav="journey"], [data-nav="where-im-headed"]) {
+  display: none;
+}

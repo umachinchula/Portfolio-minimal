@@ -118,6 +118,29 @@
   #contact .footer-email>strong{right:16px;font-size:15px}
 }
 
+@media (min-width: 901px) {
+  #journey.portfolio-journey { width: min(800px, calc(100% - 80px)); }
+  #journey .journey-layout { height: auto; grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 4px; }
+  #journey .journey-experiences {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    grid-auto-rows: minmax(186px, auto);
+    gap: 4px;
+  }
+  #journey .journey-experience { padding: 20px; gap: 12px; }
+  #journey .journey-experience-heading { gap: 14px; }
+  #journey .journey-experience-heading > img { width: 46px; height: 46px; }
+  #journey .journey-experience h3 { font-size: 18px; line-height: 22px; }
+  #journey .journey-experience-heading p { margin-top: 6px; }
+  #journey .journey-experience-heading p,
+  #journey .journey-experience .journey-description,
+  #journey .journey-story p { font-size: 14px; line-height: 20px; }
+  #journey .journey-story { min-height: 366px; padding-bottom: 224px; }
+  #journey .journey-story h3 { font-size: 20px; line-height: 24px; }
+  #journey .journey-story h3 br { display: none; }
+  #journey .journey-photo-set span { width: 220px; height: 205px; }
+}
+
 @media(max-width:380px){
   #journey .journey-experience h3{font-size:14px}
   #contact .footer-bio p{font-size:17px;line-height:23px}

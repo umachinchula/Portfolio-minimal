@@ -382,3 +382,32 @@
     transition: none;
   }
 }
+
+@media (min-width: 901px) {
+  #products { width: min(800px, calc(100% - 80px)); }
+  #products .products-frame { padding: 4px; }
+  #products .products-card { border-radius: 36px; }
+  #products .products-heading h2,
+  #products .products-card h3 {
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -.9px;
+  }
+  #products .products-story {
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: -.4px;
+  }
+  #products .products-story-line { display: block; }
+  #products .products-story-line + .products-story-line { margin-top: 2px; }
+  #products .products-metrics { grid-template-columns: repeat(3, 151px); gap: 32px; }
+  #products .products-metrics dd { font-size: 40px; line-height: 48px; }
+  #products .products-love-buddy {
+    top: 244px;
+    right: -104px;
+    width: 412px;
+    height: 412px;
+    transform: scaleX(-1);
+  }
+  #products .products-future { bottom: 32px; }
+}

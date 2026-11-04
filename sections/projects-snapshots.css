@@ -547,6 +547,39 @@
   #snapshots .ps-tags { flex-wrap: wrap; }
 }
 
+#snapshots .website-count { display: none; }
+
+@media (min-width: 901px) {
+  #projects.ps-section { width: min(800px, calc(100% - 80px)); }
+  #snapshots.ps-section,
+  #websites.ps-section { width: min(800px, calc(100% - 80px)); }
+
+  :is(#projects, #snapshots, #websites) .ps-card { padding: 4px; }
+  :is(#projects, #snapshots, #websites) .ps-card-inner { border-radius: 36px; }
+  :is(#projects, #snapshots, #websites) .ps-tags {
+    font: 400 16px/22px Schoolbell, cursive;
+    letter-spacing: normal;
+  }
+
+  #projects .ps-card h3 { font-size: 20px; line-height: 24px; letter-spacing: -.4px; }
+  #projects .ps-impact,
+  #projects .ps-image-tile { width: 370px; }
+  #projects .ps-image-tile { padding: 4px; }
+  #projects .ps-image-tile img { border-radius: 36px; }
+  #snapshots .ps-card,
+  #websites .ps-card {
+    position: relative;
+    top: auto;
+    height: auto;
+    margin-bottom: 40px;
+  }
+  :is(#snapshots, #websites) .ps-stack::after { display: none; }
+  :is(#snapshots, #websites) .ps-card-inner { height: auto; }
+  :is(#snapshots, #websites) .ps-media-viewport { flex: none; height: 334px; }
+  #snapshots .ps-card:last-child,
+  #websites .ps-card:last-child { margin-bottom: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   #projects .ps-media-viewport,
   #snapshots .ps-media-viewport { scroll-behavior: auto; }

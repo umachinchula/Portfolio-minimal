@@ -1,0 +1,33 @@
+.intro-social a::before {
+  display: none;
+}
+
+.intro-social a {
+  gap: 8px;
+}
+
+.intro-social .social-icon {
+  display: block;
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.intro-social .social-external {
+  display: block;
+  flex: 0 0 12px;
+  width: 12px;
+  height: 12px;
+  object-fit: contain;
+  opacity: 0;
+  transform: translateX(-3px);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.intro-social a.is-active .social-external,
+.intro-social a:hover .social-external,
+.intro-social a:focus-visible .social-external {
+  opacity: 1;
+  transform: translateX(0);
+}

@@ -1,0 +1,79 @@
+body > .dock-wrap.is-hidden-by-footer {
+  visibility: hidden;
+}
+
+@font-face {
+  font-family: Schoolbell;
+  src: url('quick-mode/assets/Schoolbell.ttf') format('truetype');
+  font-display: swap;
+}
+
+.v2-footer {
+  position: relative;
+  color: #1f1f1f;
+  font: 600 20px/28px Figtree, Arial, sans-serif;
+}
+.v2-footer p { margin: 0; }
+.v2-footer .footer-copy { width: min(800px, calc(100% - 40px)); margin-inline: auto; }
+.v2-footer .brand { display: block; position: relative; overflow: hidden; width: 41.35px; height: 44px; margin-bottom: 20px; }
+.v2-footer .brand img { position: absolute; width: 235.9%; max-width: none; height: 166.27%; left: -67.95%; top: -33.13%; }
+.v2-footer .social { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px; color: #50576b; font: 400 20px/28px Schoolbell, cursive; }
+.v2-footer .social :is(a, .social-placeholder) { display: flex; align-items: center; gap: 8px; }
+.v2-footer .social img { display: block; object-fit: contain; }
+
+@media (max-width: 743px) {
+  .v2-footer { font-size: 18px; line-height: 27px; }
+  .v2-footer .social { gap: 14px; font-size: 19px; line-height: 27px; }
+}
+
+/* Surf game rules extracted from quick-mode/quick.css. */
+.v2-footer .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.v2-footer{min-height:0;padding:0;overflow:hidden;background:#fff}
+.v2-footer .footer-copy{min-height:318px;padding:64px 0 70px}
+.v2-footer .surf-game{--sea-line:61%;position:relative;width:100%;height:500px;overflow:hidden;isolation:isolate;touch-action:manipulation;user-select:none;cursor:pointer;background-color:#fff;background-image:linear-gradient(to bottom,#fff 0%,#fff 38%,rgba(255,255,255,.97) 46%,rgba(255,255,255,.76) 56%,rgba(255,255,255,.28) 67%,rgba(255,255,255,0) 76%),url("quick-mode/assets/surf-game-sea.png");background-position:center top,center bottom;background-size:100% 100%,cover;background-repeat:no-repeat}
+.v2-footer .surf-game::before{content:"";position:absolute;z-index:1;inset:0 0 auto;height:72%;pointer-events:none;background:linear-gradient(to bottom,#fff 0%,#fff 46%,rgba(255,255,255,.98) 57%,rgba(255,255,255,.82) 72%,rgba(255,255,255,0) 100%)}
+.v2-footer .surf-game:focus-visible{outline:3px solid #3159a6;outline-offset:-6px}
+.v2-footer .surf-game__sound{position:absolute;z-index:10;left:max(24px,calc((100% - 800px)/2));top:26px;border:1px solid rgba(49,89,166,.22);border-radius:999px;padding:7px 12px;background:rgba(255,255,255,.78);color:#3159a6;font:600 13px/1.2 Schoolbell,cursive;letter-spacing:.04em;box-shadow:0 7px 20px rgba(49,89,166,.08);backdrop-filter:blur(9px);transition:background .18s ease,color .18s ease,transform .18s ease}
+.v2-footer .surf-game__sound:hover{background:#fff}
+.v2-footer .surf-game__sound:active{transform:translateY(1px)}
+.v2-footer .surf-game__sound[aria-pressed=true]{color:#6b7890;background:rgba(255,255,255,.68)}
+.v2-footer .surf-game__score{position:absolute;z-index:8;right:max(24px,calc((100% - 800px)/2));top:32px;color:#254e9d;font:700 27px/1 Schoolbell,cursive;letter-spacing:.08em;font-variant-numeric:tabular-nums;transition:transform .18s ease,color .18s ease}
+.v2-footer .surf-game__score.is-pulsing{transform:scale(1.22);color:#e85f50}
+.v2-footer .surf-game__instruction{position:absolute;z-index:8;left:50%;top:24%;transform:translateX(-50%);color:#3159a6;font:600 16px/1.3 Schoolbell,cursive;letter-spacing:.12em;white-space:nowrap;transition:opacity .22s ease,transform .22s ease}
+.v2-footer .surf-game__instruction::before,.v2-footer .surf-game__instruction::after{content:"";display:inline-block;width:16px;height:1px;margin:0 15px 4px;background:#3159a6;box-shadow:7px -7px 0 -0.25px #3159a6,7px 7px 0 -0.25px #3159a6}
+.v2-footer .surf-game.is-playing .surf-game__instruction,.v2-footer .surf-game.is-over .surf-game__instruction{opacity:0;transform:translate(-50%,-6px);pointer-events:none}
+.v2-footer .surf-game__player{position:absolute;z-index:6;left:0;top:0;width:104px;height:82px;transform-origin:58% 70%;will-change:transform;pointer-events:none}
+.v2-footer .surf-game__player img{display:block;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 6px 7px rgba(41,83,126,.12))}
+.v2-footer .surf-game.is-ready .surf-game__player{animation:v2-surf-ready-bob 2.8s ease-in-out infinite}
+.v2-footer .surf-game__obstacles{position:absolute;z-index:5;inset:0;pointer-events:none}
+.v2-footer .surf-obstacle-pair{position:absolute;inset-block:0;left:0;width:58px;will-change:transform}
+.v2-footer .surf-obstacle{position:absolute;left:0;width:100%}
+.v2-footer .surf-obstacle--top{top:0;height:var(--gap-top)}
+.v2-footer .surf-obstacle--bottom{top:var(--gap-bottom);bottom:0}
+.v2-footer .surf-obstacle::before{content:"";position:absolute;left:50%;width:2px;transform:translateX(-50%);background:linear-gradient(90deg,#3159a6,#78a6e8 48%,#3159a6);box-shadow:0 0 0 1px rgba(255,255,255,.34)}
+.v2-footer .surf-obstacle--top::before{top:0;bottom:58px}
+.v2-footer .surf-obstacle--bottom::before{top:58px;bottom:0}
+.v2-footer .surf-obstacle img{position:absolute;left:50%;display:block;width:58px;height:94px;object-fit:contain;transform:translateX(-50%);filter:drop-shadow(0 7px 8px rgba(29,75,125,.14))}
+.v2-footer .surf-obstacle--top img{bottom:0;transform:translateX(-50%) rotate(180deg)}
+.v2-footer .surf-obstacle--bottom img{top:0}
+.v2-footer .surf-game__over{position:absolute;z-index:12;left:50%;top:27%;transform:translate(-50%,-50%);min-width:188px;padding:18px 20px 16px;text-align:center;border:1px solid rgba(85,123,168,.18);border-radius:18px;background:rgba(255,255,255,.84);box-shadow:0 14px 40px rgba(31,79,129,.12);backdrop-filter:blur(12px);cursor:default}
+.v2-footer .surf-game__over[hidden]{display:none}
+.v2-footer .surf-game__over p{font-size:16px;line-height:20px;color:#49617e}
+.v2-footer .surf-game__over strong{display:block;margin:2px 0 12px;color:#254e9d;font:700 30px/1 Schoolbell,cursive}
+.v2-footer .surf-game__over button{border:0;border-radius:999px;padding:8px 16px;background:#1d4f9c;color:#fff;font-size:14px;line-height:20px;box-shadow:0 5px 14px rgba(29,79,156,.18)}
+.v2-footer .surf-game__over button:hover{background:#173f7c}
+@keyframes v2-surf-ready-bob{0%,100%{margin-top:0}50%{margin-top:-7px}}
+@media(max-width:743px){
+  .v2-footer .footer-copy{min-height:300px;padding:52px 0 58px}
+  .v2-footer .surf-game{height:440px;--sea-line:63%;background-position:center top,58% bottom;background-size:100% 72%,auto 100%}
+  .v2-footer .surf-game__sound{left:20px;top:17px;padding:6px 10px;font-size:12px}
+  .v2-footer .surf-game__score{right:20px;top:22px;font-size:24px}
+  .v2-footer .surf-game__instruction{top:18%;font-size:14px;letter-spacing:.08em}
+  .v2-footer .surf-game__instruction::before,.v2-footer .surf-game__instruction::after{width:10px;margin-inline:9px}
+  .v2-footer .surf-game__player{width:88px;height:70px}
+  .v2-footer .surf-obstacle-pair{width:50px}
+  .v2-footer .surf-obstacle img{width:50px;height:82px}
+  .v2-footer .surf-obstacle--top::before{bottom:50px}.v2-footer .surf-obstacle--bottom::before{top:50px}
+  .v2-footer .surf-game__over{top:24%;min-width:174px;padding:15px 18px 14px}
+}
+@media(prefers-reduced-motion:reduce){.v2-footer .surf-game.is-ready .surf-game__player{animation:none}.v2-footer .surf-game__score,.v2-footer .surf-game__instruction,.v2-footer .surf-game__sound{transition:none}}
