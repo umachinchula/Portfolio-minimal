@@ -12,7 +12,57 @@ for (const id of dockOrder) {
   dock.append(link);
 }
 const counters = [...document.querySelectorAll('[data-count-for]')];
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+const reduceMotion = motionPreference.matches;
+
+const moreToggle = dock.querySelector('.dock-toggle');
+const moreMenu = document.createElement('div');
+moreMenu.className = 'dock-menu';
+moreMenu.hidden = true;
+moreMenu.id = 'mobile-navigation-more';
+for (const id of dockOrder.slice(3)) {
+  const source = dock.querySelector(`[data-nav="${id}"]`);
+  if (!source) continue;
+  const item = document.createElement('a');
+  item.href = source.getAttribute('href');
+  item.textContent = source.getAttribute('aria-label');
+  item.className = 'dock-link-menu';
+  moreMenu.append(item);
+}
+dock.append(moreToggle, moreMenu);
+moreToggle.setAttribute('aria-controls', moreMenu.id);
+moreToggle.addEventListener('click', () => {
+  moreMenu.hidden = !moreMenu.hidden;
+  moreToggle.setAttribute('aria-expanded', String(!moreMenu.hidden));
+});
+document.addEventListener('click', event => {
+  if (!moreMenu.hidden && !moreMenu.contains(event.target) && !moreToggle.contains(event.target)) {
+    moreMenu.hidden = true;
+    moreToggle.setAttribute('aria-expanded', 'false');
+  }
+});
+window.addEventListener('portfolio-mode-change', () => {
+  moreMenu.hidden = true;
+  moreToggle.setAttribute('aria-expanded', 'false');
+});
+
+dock.addEventListener('click', event => {
+  if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  if (motionPreference.matches) return;
+
+  const link = event.target.closest('a[href^="#"]');
+  if (!link) return;
+  const target = document.getElementById(link.hash.slice(1));
+  if (!target || !target.getClientRects().length) return;
+
+  event.preventDefault();
+  if (window.location.hash !== link.hash) history.pushState(history.state, '', link.hash);
+  if (!target.hasAttribute('tabindex')) target.tabIndex = -1;
+  target.focus({ preventScroll: true });
+  target.scrollIntoView({ behavior: 'smooth' });
+  moreMenu.hidden = true;
+  moreToggle.setAttribute('aria-expanded', 'false');
+});
 
 function applyPortfolioCms(){
   const cms=window.PORTFOLIO_CMS;

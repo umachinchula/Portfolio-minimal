@@ -10,7 +10,7 @@
   font-family:Figtree,Arial,sans-serif;color:var(--text-1);background:var(--bg-1);font-synthesis:none;
 }
 *{box-sizing:border-box}
-html{scroll-padding-top:32px}
+html{scroll-padding-top:32px;scroll-behavior:smooth}
 html.lenis{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
 .lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}

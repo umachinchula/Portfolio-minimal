@@ -27,8 +27,8 @@ if (surfGame) {
   const surfSoundToggle = surfGame.querySelector("#surf-sound-toggle");
   const surfPointSound = new Audio("quick-mode/assets/surf-point.mp3");
   const surfCrashSound = new Audio("quick-mode/assets/surf-crash.mp3");
-  surfPointSound.preload = "auto";
-  surfCrashSound.preload = "auto";
+  surfPointSound.preload = "none";
+  surfCrashSound.preload = "none";
   surfPointSound.volume = 0.48;
   surfCrashSound.volume = 0.58;
   let surfState = "ready";

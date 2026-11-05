@@ -76,6 +76,7 @@
 .v2-hero .hero-preview-card figcaption { height:24px; display:grid; place-items:center; padding-top:3px; color:#151619; font:600 12px/16px Figtree,Arial,sans-serif; white-space:nowrap; }
 
 @media(max-width:743px) {
+  .v2-hero .hero-focus[data-preview="company"] { display:inline; }
   .v2-hero .hero-preview-card { width:154px; padding:5px; }
   .v2-hero .hero-preview-card img, .v2-hero .hero-preview-card video { width:144px; }
   .v2-hero .hero-preview-editor video { height:180px; }

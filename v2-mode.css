@@ -8,6 +8,13 @@
   opacity: 1;
 }
 
+@media (max-width: 743px) {
+  .dock-wrap .v2-mode-control {
+    --dock-button-size: 46px;
+    padding: 6px;
+  }
+}
+
 [data-portfolio-mode="quick"] :is(#explorations, #snapshots, #journey, #where-im-headed),
 [data-portfolio-mode="quick"] :is([data-nav="explorations"], [data-nav="snapshots"], [data-nav="journey"], [data-nav="where-im-headed"]),
 [data-portfolio-mode="quick"] nav :is([href="#explorations"], [href="#snapshots"], [href="#journey"], [href="#where-im-headed"]) {

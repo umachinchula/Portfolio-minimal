@@ -56,13 +56,42 @@
 .dock-menu a:hover,.dock-menu a:focus-visible{background:#f3f5f6}
 
 @media (max-width: 743px) {
-  .dock-wrap { bottom: max(24px, env(safe-area-inset-bottom)); }
-}
-
-@media (max-width: 359px) {
   .dock-wrap {
-    --dock-button-size: 29px;
-    --dock-gap: 2px;
-    gap: 6px;
+    --dock-gap: 4px;
+    bottom: max(20px, env(safe-area-inset-bottom));
+    width: min(336px, calc(100% - 16px));
   }
+
+  .dock-wrap .dock {
+    flex: 1;
+    min-width: 0;
+    height: 58px;
+    justify-content: center;
+  }
+
+  .dock-wrap .dock .dock-link {
+    flex: 0 1 50px;
+    min-width: 0;
+    height: auto;
+    aspect-ratio: 1;
+  }
+
+  .dock-wrap :is(.dock-link, .v2-mode-control button) img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .dock-wrap .dock .dock-link:nth-of-type(n + 4) { display: none; }
+  .dock-wrap .dock-toggle {
+    display: grid;
+    place-items: center;
+    flex: 0 0 46px;
+    height: 46px;
+    border: 0;
+    background: transparent;
+    color: white;
+    font-size: 24px;
+  }
+  [data-portfolio-mode="quick"] .dock-wrap .dock-toggle { display: none; }
+  .dock-wrap .dock-menu { left: auto; right: 0; bottom: calc(100% + 10px); }
 }

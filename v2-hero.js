@@ -3,6 +3,21 @@ const intro = document.querySelector('.v2-hero');
 const content = intro?.querySelector('.content');
 const preview = intro?.querySelector('#hero-preview');
 
+// Stop decoding the sky video while the hero is outside the viewport.
+const skyVideo = intro?.querySelector('.intro-sky');
+if (skyVideo) {
+  let skyVisible = true;
+  const updateSky = () => {
+    if (skyVisible && !document.hidden) skyVideo.play().catch(() => {});
+    else skyVideo.pause();
+  };
+  new IntersectionObserver(entries => {
+    skyVisible = entries[0].isIntersecting;
+    updateSky();
+  }).observe(intro);
+  document.addEventListener('visibilitychange', updateSky);
+}
+
 if (content && preview) {
   const targets = intro.querySelectorAll('.hero-focus');
   const cards = [...preview.querySelectorAll('[data-preview-card]')];
@@ -21,6 +36,12 @@ if (content && preview) {
   function showPreview(target) {
     const card = cards.find(item => item.dataset.previewCard === target.dataset.preview);
     if (!card) return;
+
+    const media = card.querySelector('[data-src]');
+    if (media) {
+      media.src = media.dataset.src;
+      delete media.dataset.src;
+    }
 
     intro.classList.add('is-spotlighting');
     targets.forEach(item => item.classList.toggle('is-active', item === target));
