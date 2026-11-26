@@ -170,44 +170,10 @@ if(copyEmail){
   });
 }
 
-const caseModal=document.querySelector('#case-study-password-modal');
-if(caseModal){
-  const modalContent={
-    pitch40:{project:'PROJECT 1',title:'Pitch40 Marketplace Experience',description:'How I shaped a startup-investor platform by simplifying discovery, founder onboarding, and investment decision flows into one clear product experience.',href:'pitch40.html'},
-    inkwave:{project:'PROJECT 2',title:'Inkwave Creator Platform Experience',description:'This case study shows how I designed a newsletter platform from 0 to 1, helping creators publish, monetize, and grow from one product experience.',href:'inkwave.html'}
-  };
-  const projectLabel=caseModal.querySelector('.case-modal-project');
-  const title=caseModal.querySelector('#case-modal-title');
-  const description=caseModal.querySelector('.case-modal-description');
-  const form=caseModal.querySelector('.case-modal-form');
-  const input=caseModal.querySelector('input');
-  let destination='';
-
-  function openCaseModal(project){
-    const content=modalContent[project];
-    if(!content)return;
-    caseModal.dataset.project=project;
-    projectLabel.textContent=content.project;
-    title.textContent=content.title;
-    description.textContent=content.description;
-    destination=content.href;
-    input.value='Project';
-    input.setCustomValidity('');
-    caseModal.showModal();
-    requestAnimationFrame(()=>input.focus());
-  }
-
-  for(const trigger of document.querySelectorAll('[data-modal-trigger]'))trigger.addEventListener('click',event=>{event.stopPropagation();openCaseModal(trigger.dataset.modalTrigger)});
-  for(const card of document.querySelectorAll('[data-protected-project]'))card.addEventListener('click',event=>{if(event.target.closest('a,button,input,.ps-media-viewport'))return;openCaseModal(card.dataset.protectedProject)});
-  caseModal.addEventListener('click',event=>{if(event.target===caseModal)caseModal.close()});
-  input.addEventListener('input',()=>input.setCustomValidity(''));
-  form.addEventListener('submit',event=>{
-    event.preventDefault();
-    if(input.value!=='Project'){
-      input.setCustomValidity('Use the predefined password: Project');
-      input.reportValidity();
-      return;
-    }
-    window.location.href=destination;
+// Case studies are public; card clicks and CTA links open them directly.
+for (const card of document.querySelectorAll('[data-case-study]')) {
+  card.addEventListener('click', event => {
+    if (event.target.closest('a,button,input,.ps-media-viewport') || window.getSelection()?.toString()) return;
+    window.location.href = card.dataset.caseStudy;
   });
 }
